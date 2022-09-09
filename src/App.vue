@@ -1,7 +1,7 @@
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Home</router-link>
-  </nav>
+  </nav> -->
   <router-view />
 </template>
 
@@ -10,5 +10,10 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: var(--black);
+}
+
+:root {
+  --black: rgb(27, 27, 27);
 }
 </style>

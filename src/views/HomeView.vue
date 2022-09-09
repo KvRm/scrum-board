@@ -1,14 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <button-component :color="ButtonColor.ghost" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import ButtonComponent from "@/components/UI/ButtonComponent.vue";
+import { ButtonColor } from "@/types/index";
 
 export default defineComponent({
   name: "HomeView",
-  components: {},
+  components: { ButtonComponent },
+
+  setup() {
+    return {
+      ButtonColor,
+    };
+  },
 });
 </script>
+
+<style scoped>
+.home {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+</style>
