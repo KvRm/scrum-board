@@ -5,13 +5,13 @@ import store from "./store";
 import * as firebase from "firebase/app";
 
 firebase.initializeApp({
-  apiKey: "AIzaSyBsykbgBF86M_tEjTDz4P3VlSJL2yHPYAU",
-  authDomain: "scrum-board-vue.firebaseapp.com",
-  projectId: "scrum-board-vue",
-  storageBucket: "scrum-board-vue.appspot.com",
-  messagingSenderId: "164457409672",
-  appId: "1:164457409672:web:5621b164f82e3bfd4d033d",
-  measurementId: "G-NYPXPVZ2KZ",
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 });
 
 createApp(App).use(store).use(router).mount("#app");
