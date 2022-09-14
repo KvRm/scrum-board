@@ -8,7 +8,7 @@
       blue: color === 'blue',
     }"
   >
-    {{ color }}
+    <slot />
   </button>
 </template>
 
@@ -31,10 +31,12 @@ export default defineComponent({
   padding: 7px 14px;
   border-radius: 5px;
   cursor: pointer;
-  border: 1px solid var(--black);
+  border: 1px solid var(--gray);
   transition: all 0.2s;
   min-width: 70px;
   font-size: 14px;
+  background: #fff;
+  color: var(--black);
 }
 
 .green:hover {

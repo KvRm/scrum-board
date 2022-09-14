@@ -1,10 +1,5 @@
 <template>
-  <div class="home">
-    <button-component :color="ButtonColor.primary" />
-    <button-component :color="ButtonColor.green" />
-    <button-component :color="ButtonColor.red" />
-    <button-component :color="ButtonColor.blue" />
-  </div>
+  <div class="home"></div>
 </template>
 
 <script lang="ts">
@@ -14,7 +9,7 @@ import { ButtonColor } from "@/types/index";
 
 export default defineComponent({
   name: "HomeView",
-  components: { ButtonComponent },
+  // components: { ButtonComponent },
 
   setup() {
     return {
