@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <button
-      class="btn"
-      :class="{ primary: color === 'primary', ghost: color === 'ghost' }"
-    >
-      {{ color }}
-    </button>
-  </div>
+  <button
+    class="btn"
+    :class="{
+      primary: color === 'primary',
+      green: color === 'green',
+      red: color === 'red',
+      blue: color === 'blue',
+    }"
+  >
+    {{ color }}
+  </button>
 </template>
 
 <script lang="ts">
@@ -16,7 +19,7 @@ import { ButtonColor } from "@/types/index";
 export default defineComponent({
   props: {
     color: {
-      type: Object as PropType<ButtonColor>,
+      type: String as PropType<ButtonColor>,
       required: true,
     },
   },
@@ -25,26 +28,39 @@ export default defineComponent({
 
 <style scoped>
 .btn {
-  padding: 10px 20px;
-  border-radius: 3px;
+  padding: 7px 14px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: all 0.3s;
-}
-
-.ghost {
   border: 1px solid var(--black);
   transition: all 0.2s;
+  min-width: 70px;
+  font-size: 14px;
 }
-.ghost:hover {
-  background: teal;
+
+.green:hover {
+  background: var(--green);
   color: #fff;
-  border-color: teal;
+  border-color: var(--green);
+}
+
+.red:hover {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+}
+
+.blue:hover {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
 }
 
 .primary {
   background: teal;
   border: none;
   color: #fff;
+  font-size: 16px;
+  transition: all 0.3s;
 }
 .primary:hover {
   background: rgb(0, 87, 87);

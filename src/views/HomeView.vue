@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <button-component :color="ButtonColor.ghost" />
+    <button-component :color="ButtonColor.primary" />
+    <button-component :color="ButtonColor.green" />
+    <button-component :color="ButtonColor.red" />
+    <button-component :color="ButtonColor.blue" />
   </div>
 </template>
 

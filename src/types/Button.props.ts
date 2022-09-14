@@ -1,4 +1,6 @@
 export enum ButtonColor {
   primary = "primary",
-  ghost = "ghost",
+  green = "green",
+  red = "red",
+  blue = "blue",
 }
