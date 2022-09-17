@@ -2,10 +2,10 @@
   <div class="container">
     <div class="create-elem-container">
       <div class="choose-container">
-        <button-component :color="ButtonColor.blue" :size="ButtonSize.medium">
-          Создать столбец
+        <button-component :color="ButtonColor.green" :size="ButtonSize.medium">
+          Редактировать столбцы
         </button-component>
-        <button-component :color="ButtonColor.blue" :size="ButtonSize.medium">
+        <button-component :color="ButtonColor.green" :size="ButtonSize.medium">
           Добавить задачу
         </button-component>
       </div>
