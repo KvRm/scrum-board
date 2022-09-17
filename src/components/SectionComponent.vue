@@ -1,11 +1,15 @@
 <template>
-  <section class="section"></section>
+  <section class="section">
+    <task-component />
+  </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import TaskComponent from "./TaskComponent.vue";
 
 export default defineComponent({
+  components: { TaskComponent },
   setup() {
     return {};
   },
@@ -15,11 +19,8 @@ export default defineComponent({
 <style scoped>
 .section {
   display: grid;
-  min-height: 100vh;
-  min-width: 300px;
-  border-right: 1px solid var(--gray);
-  border-left: 1px solid var(--gray);
-  border-top: 1px solid var(--gray);
+  justify-content: space-around;
+  min-width: 410px;
   gap: 5px;
 }
 </style>

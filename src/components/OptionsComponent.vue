@@ -10,7 +10,12 @@
         </button-component>
       </div>
       <create-task-form />
-      <div>Тут пример компонента</div>
+      <task-template
+        :title="title"
+        :criticalLvl="criticalLvl"
+        :timeToComplete="timeToComplete"
+        :section="section"
+      />
     </div>
     <button-component
       class="create-btn"
@@ -24,19 +29,37 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import ButtonComponent, {
   ButtonColor,
   ButtonSize,
 } from "@/components/UI/ButtonComponent.vue";
 import CreateTaskForm from "@/components/CreateTaskForm.vue";
 import SearchFilterComponent from "@/components/SearchFilterComponent.vue";
+import TaskTemplate from "./TaskTemplate.vue";
 
 export default defineComponent({
-  components: { ButtonComponent, CreateTaskForm, SearchFilterComponent },
+  components: {
+    ButtonComponent,
+    CreateTaskForm,
+    SearchFilterComponent,
+    TaskTemplate,
+  },
 
   setup() {
-    return { ButtonColor, ButtonSize };
+    const title = ref<string>("Таски по скрам доске");
+    const criticalLvl = ref<string>("Высокий");
+    const timeToComplete = ref<string>("2022-10-10");
+    const section = ref<string>("Первая секция");
+
+    return {
+      ButtonColor,
+      ButtonSize,
+      title,
+      criticalLvl,
+      timeToComplete,
+      section,
+    };
   },
 });
 </script>
@@ -54,7 +77,7 @@ export default defineComponent({
 
   padding: 20px 0;
   width: 100%;
-  height: 200px;
+  height: 300px;
 }
 
 .choose-container {

@@ -1,9 +1,9 @@
 <template>
   <form class="task-info" action="submit">
     <input-component :title="'Название задачи'" />
-    <select-component :title="'Критичность'" />
-    <!-- <select-component :title="Столбец" /> -->
-    <!-- <calendar-component :title="Желаемая дата выполнения задачи" /> -->
+    <select-component :title="'Критичность'" :selectList="list" />
+    <select-component :title="'Столбец'" />
+    <calendar-component :title="'Крайний срок выполнения задачи'" />
   </form>
 </template>
 
@@ -15,12 +15,14 @@ import SelectComponent from "./UI/SelectComponent.vue";
 
 export default defineComponent({
   components: {
-    // CalendarComponent,
+    CalendarComponent,
     SelectComponent,
     InputComponent,
   },
   setup() {
-    return {};
+    return {
+      list: ["a", "b", "c"],
+    };
   },
 });
 </script>

@@ -26,5 +26,6 @@ export default defineComponent({
   display: grid;
   overflow-x: scroll;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  min-height: 100vh;
 }
 </style>
