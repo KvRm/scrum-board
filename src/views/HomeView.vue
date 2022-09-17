@@ -1,15 +1,21 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <options-component></options-component>
+    <sections-container />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import ButtonComponent from "@/components/UI/ButtonComponent.vue";
-import { ButtonColor } from "@/types/index";
+import ButtonComponent, {
+  ButtonColor,
+} from "@/components/UI/ButtonComponent.vue";
+import OptionsComponent from "@/components/OptionsComponent.vue";
+import SectionsContainer from "@/components/SectionsContainer.vue";
 
 export default defineComponent({
   name: "HomeView",
-  // components: { ButtonComponent },
+  components: { OptionsComponent, SectionsContainer },
 
   setup() {
     return {
@@ -18,10 +24,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.home {
-  margin-left: 10px;
-  margin-top: 10px;
-}
-</style>

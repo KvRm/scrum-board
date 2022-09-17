@@ -2,12 +2,14 @@
   <header class="header">
     <div class="container header-container">
       <nav class="nav">
-        <router-link to="/">На главную</router-link>
-        <router-link to="/history">История</router-link>
+        <router-link class="link" to="/">На главную</router-link>
+        <router-link class="link" to="/history">История</router-link>
       </nav>
       <div v-if="!isAuth" class="menu auth-menu">
-        <button-component :color="ButtonColor.green">Войти</button-component>
-        <button-component :color="ButtonColor.green">
+        <button-component :color="ButtonColor.green" :size="ButtonSize.medium"
+          >Войти</button-component
+        >
+        <button-component :color="ButtonColor.green" :size="ButtonSize.medium">
           Регистрация
         </button-component>
       </div>
@@ -20,8 +22,10 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
-import ButtonComponent from "@/components/UI/ButtonComponent.vue";
-import { ButtonColor } from "@/types/index";
+import ButtonComponent, {
+  ButtonColor,
+  ButtonSize,
+} from "@/components/UI/ButtonComponent.vue";
 
 export default defineComponent({
   components: {
@@ -33,6 +37,7 @@ export default defineComponent({
     return {
       isAuth,
       ButtonColor,
+      ButtonSize,
     };
   },
 });
@@ -42,6 +47,7 @@ export default defineComponent({
 .header {
   height: 60px;
   box-shadow: 0px 0 10px gray;
+  width: 100%;
 }
 
 .header-container {
@@ -49,8 +55,6 @@ export default defineComponent({
   grid-template-columns: 1fr auto;
   align-items: center;
   height: 60px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .nav {
@@ -66,5 +70,10 @@ export default defineComponent({
 .auth-menu {
   display: flex;
   gap: 10px;
+}
+
+.link:hover {
+  opacity: 0.8;
+  transition: all 0.2s;
 }
 </style>

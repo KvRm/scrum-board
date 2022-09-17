@@ -6,6 +6,11 @@
       green: color === 'green',
       red: color === 'red',
       blue: color === 'blue',
+
+      small: size === 'small',
+      medium: size === 'medium',
+      large: size === 'large',
+      extraLarge: size === 'extraLarge',
     }"
   >
     <slot />
@@ -14,13 +19,31 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { ButtonColor } from "@/types/index";
+
+export enum ButtonColor {
+  primary = "primary",
+  green = "green",
+  red = "red",
+  blue = "blue",
+}
+
+export enum ButtonSize {
+  small = "small",
+  medium = "medium",
+  large = "large",
+  extraLarge = "extraLarge",
+}
 
 export default defineComponent({
   props: {
     color: {
       type: String as PropType<ButtonColor>,
       required: true,
+    },
+    size: {
+      type: String as PropType<ButtonSize>,
+      required: true,
+      default: "small",
     },
   },
 });
@@ -33,12 +56,24 @@ export default defineComponent({
   cursor: pointer;
   border: 1px solid var(--gray);
   transition: all 0.2s;
-  min-width: 70px;
+  min-width: 90px;
   font-size: 14px;
   background: #fff;
   color: var(--black);
 }
 
+.small {
+  font-size: 14px;
+}
+.medium {
+  font-size: 16px;
+}
+.large {
+  font-size: 18px;
+}
+.extraLarge {
+  font-size: 20px;
+}
 .green:hover {
   background: var(--green);
   color: #fff;
@@ -61,7 +96,6 @@ export default defineComponent({
   background: teal;
   border: none;
   color: #fff;
-  font-size: 16px;
   transition: all 0.3s;
 }
 .primary:hover {

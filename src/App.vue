@@ -1,6 +1,8 @@
 <template>
-  <header-component></header-component>
-  <router-view />
+  <div class="layout">
+    <header-component class="header-component"></header-component>
+    <router-view class="view" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -19,6 +21,15 @@ export default defineComponent({
   font-weight: 500;
 }
 
+.header-component {
+  z-index: 1000;
+}
+
+.view {
+  display: relative;
+  z-index: 999;
+}
+
 body {
   font-size: 16px;
   margin: 0;
@@ -35,12 +46,23 @@ a {
 .container {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 10px;
+}
+
+.router-link-active::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: var(--green);
+  margin-top: 5px;
+  transition: all 0.5s;
 }
 
 :root {
   --gray: rgba(69, 69, 69, 0.536);
   --black: rgb(47, 47, 47);
   --green: rgb(0, 115, 90);
+  --dark-green: rgb(0, 81, 63);
   --red: rgb(193, 42, 42);
   --blue: rgb(7, 114, 191);
 }
