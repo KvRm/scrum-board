@@ -20,7 +20,7 @@ export default defineComponent({
 .section {
   display: grid;
   justify-content: space-around;
-  min-width: 410px;
+  min-width: 310px;
   gap: 5px;
 }
 </style>

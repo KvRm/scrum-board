@@ -52,10 +52,11 @@ a {
 .router-link-active::after {
   content: "";
   display: block;
-  height: 2px;
+  height: 3px;
   background: var(--green);
-  margin-top: 5px;
+  margin-top: 2px;
   transition: all 0.5s;
+  transition: 0.2s ease-in-out;
 }
 
 :root {

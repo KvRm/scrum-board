@@ -2,20 +2,23 @@
   <div class="container">
     <div class="create-elem-container">
       <div class="choose-container">
-        <button-component :color="ButtonColor.green" :size="ButtonSize.medium">
+        <button-component
+          :color="ButtonColor.green"
+          :size="ButtonSize.medium"
+          @click="changeCreateState('column')"
+        >
           Редактировать столбцы
         </button-component>
-        <button-component :color="ButtonColor.green" :size="ButtonSize.medium">
+        <button-component
+          :color="ButtonColor.green"
+          :size="ButtonSize.medium"
+          @click="changeCreateState('task')"
+        >
           Добавить задачу
         </button-component>
       </div>
-      <create-task-form />
-      <task-template
-        :title="title"
-        :criticalLvl="criticalLvl"
-        :timeToComplete="timeToComplete"
-        :section="section"
-      />
+      <create-task-form v-if="createState === 'task'" />
+      <create-column-form v-if="createState === 'column'" />
     </div>
     <button-component
       class="create-btn"
@@ -34,31 +37,35 @@ import ButtonComponent, {
   ButtonColor,
   ButtonSize,
 } from "@/components/UI/ButtonComponent.vue";
-import CreateTaskForm from "@/components/CreateTaskForm.vue";
+import CreateTaskForm from "@/components/manage-components/CreateTaskForm.vue";
 import SearchFilterComponent from "@/components/SearchFilterComponent.vue";
-import TaskTemplate from "./TaskTemplate.vue";
+import CreateColumnForm from "./CreateColumnForm.vue";
+
+enum CreateStateEnum {
+  task = "task",
+  column = "column",
+}
 
 export default defineComponent({
   components: {
     ButtonComponent,
     CreateTaskForm,
     SearchFilterComponent,
-    TaskTemplate,
+    CreateColumnForm,
   },
 
   setup() {
-    const title = ref<string>("Таски по скрам доске");
-    const criticalLvl = ref<string>("Высокий");
-    const timeToComplete = ref<string>("2022-10-10");
-    const section = ref<string>("Первая секция");
+    const createState = ref<CreateStateEnum>(CreateStateEnum.task);
+
+    const changeCreateState = (newState: CreateStateEnum) => {
+      createState.value = newState;
+    };
 
     return {
       ButtonColor,
       ButtonSize,
-      title,
-      criticalLvl,
-      timeToComplete,
-      section,
+      createState,
+      changeCreateState,
     };
   },
 });

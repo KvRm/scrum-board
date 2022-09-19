@@ -99,7 +99,6 @@ export default defineComponent({
   transition: all 0.3s;
 }
 .primary:hover {
-  background: rgb(0, 87, 87);
-  border-radius: 25px;
+  border-radius: 20px;
 }
 </style>

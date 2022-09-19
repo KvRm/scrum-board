@@ -15,7 +15,7 @@ export default defineComponent({
 <style scoped>
 .task {
   border: 2px solid var(--gray);
-  width: 400px;
+  width: 300px;
   height: 200px;
   border-radius: 5px;
   background: #fff;

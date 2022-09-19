@@ -3,17 +3,25 @@
     <p class="title">{{ title }}</p>
     <textarea-component
       :placeholder="'Введите содержание задачи'"
-      :title="'Содержание задачи'"
+      :textareaTitle="'Содержание задачи'"
     />
-    <p>
-      Крайний срок: <span>{{ timeToComplete }}</span>
-    </p>
+    <div class="info">
+      <div>
+        <p>
+          Крайний срок: <span>{{ timeToComplete }}</span>
+        </p>
+        <p>Столбец: <span>столбец</span></p>
+      </div>
+      <div class="author">
+        <p>Автор: user</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import TextareaComponent from "./UI/TextareaComponent.vue";
+import TextareaComponent from "../UI/TextareaComponent.vue";
 
 export default defineComponent({
   components: { TextareaComponent },
@@ -55,6 +63,19 @@ export default defineComponent({
 
 .title {
   text-align: center;
+  font-size: 18px;
+  line-height: 0;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info p {
+  display: inline;
+  padding-left: 5px;
+  margin-right: 20px;
 }
 
 p {

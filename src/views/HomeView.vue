@@ -10,7 +10,7 @@ import { defineComponent, ref } from "vue";
 import ButtonComponent, {
   ButtonColor,
 } from "@/components/UI/ButtonComponent.vue";
-import OptionsComponent from "@/components/OptionsComponent.vue";
+import OptionsComponent from "@/components/manage-components/OptionsComponent.vue";
 import SectionsContainer from "@/components/SectionsContainer.vue";
 
 export default defineComponent({
