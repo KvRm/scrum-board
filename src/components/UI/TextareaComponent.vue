@@ -1,6 +1,6 @@
 <template>
   <div class="textarea-container">
-    <label class="textareaTitle">{{ textareaTitle }}</label>
+    <label class="textareaTitle">{{ title }}</label>
     <textarea
       class="textarea"
       cols="100"
@@ -19,7 +19,7 @@ export default defineComponent({
     placeholder: {
       type: String,
     },
-    textareaTitle: {
+    title: {
       type: String,
     },
   },
@@ -41,7 +41,6 @@ export default defineComponent({
   padding: 5px 10px;
   border: 2px solid var(--gray);
   border-radius: 4px;
-  margin-top: 10px;
   min-height: 100px;
   max-height: 100px;
   min-width: 400px;

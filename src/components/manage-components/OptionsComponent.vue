@@ -39,12 +39,9 @@ import ButtonComponent, {
 } from "@/components/UI/ButtonComponent.vue";
 import CreateTaskForm from "@/components/manage-components/CreateTaskForm.vue";
 import SearchFilterComponent from "@/components/SearchFilterComponent.vue";
-import CreateColumnForm from "./CreateColumnForm.vue";
+import CreateColumnForm from "./EditColumn.vue";
 
-enum CreateStateEnum {
-  task = "task",
-  column = "column",
-}
+type createStateTypes = "task" | "column";
 
 export default defineComponent({
   components: {
@@ -55,9 +52,9 @@ export default defineComponent({
   },
 
   setup() {
-    const createState = ref<CreateStateEnum>(CreateStateEnum.task);
+    const createState = ref<createStateTypes>("column");
 
-    const changeCreateState = (newState: CreateStateEnum) => {
+    const changeCreateState = (newState: createStateTypes) => {
       createState.value = newState;
     };
 

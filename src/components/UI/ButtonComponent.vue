@@ -94,6 +94,7 @@ export default defineComponent({
 
 .primary {
   background: teal;
+  padding: 10px 25px;
   border: none;
   color: #fff;
   transition: all 0.3s;

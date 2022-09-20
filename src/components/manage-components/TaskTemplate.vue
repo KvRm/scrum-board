@@ -3,7 +3,7 @@
     <p class="title">{{ title }}</p>
     <textarea-component
       :placeholder="'Введите содержание задачи'"
-      :textareaTitle="'Содержание задачи'"
+      :title="'Содержание задачи'"
     />
     <div class="info">
       <div>

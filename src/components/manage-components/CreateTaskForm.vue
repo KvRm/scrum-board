@@ -1,10 +1,10 @@
 <template>
-  <form class="task-info" action="submit">
+  <div class="task-info">
     <input-component :title="'Название задачи'" />
-    <select-component :title="'Критичность'" :selectList="list" />
+    <select-component :title="'Приоритет'" :selectList="list" />
     <select-component :title="'Столбец'" />
     <calendar-component :title="'Крайний срок выполнения задачи'" />
-  </form>
+  </div>
   <task-template
     :title="title"
     :criticalLvl="criticalLvl"
