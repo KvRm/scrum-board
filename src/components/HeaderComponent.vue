@@ -3,7 +3,7 @@
     <div class="container header-container">
       <nav class="nav">
         <router-link class="link" to="/">На главную</router-link>
-        <router-link class="link" to="/history">История</router-link>
+        <search-filter-component />
       </nav>
       <div v-if="!isAuth" class="menu auth-menu">
         <button-component :color="ButtonColor.green" :size="ButtonSize.medium"
@@ -26,10 +26,12 @@ import ButtonComponent, {
   ButtonColor,
   ButtonSize,
 } from "@/components/UI/ButtonComponent.vue";
+import SearchFilterComponent from "./SearchFilterComponent.vue";
 
 export default defineComponent({
   components: {
     ButtonComponent,
+    SearchFilterComponent,
   },
   setup() {
     const isAuth = ref<boolean>(false);

@@ -25,7 +25,7 @@
       :color="ButtonColor.primary"
       :size="ButtonSize.large"
     >
-      Создать
+      Сохранить
     </button-component>
     <search-filter-component />
   </div>
