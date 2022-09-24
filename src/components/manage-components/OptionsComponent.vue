@@ -20,14 +20,16 @@
       <create-task-form v-if="createState === 'task'" />
       <create-column-form v-if="createState === 'column'" />
     </div>
-    <button-component
-      class="create-btn"
-      :color="ButtonColor.primary"
-      :size="ButtonSize.large"
-    >
-      Сохранить
-    </button-component>
-    <search-filter-component />
+    <div class="utils">
+      <search-filter-component />
+      <button-component
+        class="create-btn"
+        :color="ButtonColor.primary"
+        :size="ButtonSize.large"
+      >
+        Сохранить
+      </button-component>
+    </div>
   </div>
 </template>
 
@@ -38,7 +40,7 @@ import ButtonComponent, {
   ButtonSize,
 } from "@/components/UI/ButtonComponent.vue";
 import CreateTaskForm from "@/components/manage-components/CreateTaskForm.vue";
-import SearchFilterComponent from "@/components/SearchFilterComponent.vue";
+import SearchFilterComponent from "@/components/manage-components/SearchFilterComponent.vue";
 import CreateColumnForm from "./EditColumn.vue";
 
 type createStateTypes = "task" | "column";
@@ -93,5 +95,10 @@ export default defineComponent({
 .create-btn {
   align-self: flex-end;
   justify-self: center;
+}
+
+.utils {
+  display: grid;
+  grid-template-columns: 1fr auto;
 }
 </style>

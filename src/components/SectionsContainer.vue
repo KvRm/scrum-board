@@ -25,7 +25,9 @@ export default defineComponent({
 .sections-container {
   display: grid;
   overflow-x: scroll;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
   min-height: 100vh;
+  padding: 0px 10px;
 }
 </style>

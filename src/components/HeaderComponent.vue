@@ -26,7 +26,7 @@ import ButtonComponent, {
   ButtonColor,
   ButtonSize,
 } from "@/components/UI/ButtonComponent.vue";
-import SearchFilterComponent from "./SearchFilterComponent.vue";
+import SearchFilterComponent from "./manage-components/SearchFilterComponent.vue";
 
 export default defineComponent({
   components: {
