@@ -3,12 +3,12 @@
     <div class="container header-container">
       <nav class="nav">
         <router-link class="link" to="/">На главную</router-link>
-        <search-filter-component />
+        <router-link class="link" to="/personal-tasks">Мои задачи</router-link>
       </nav>
       <div v-if="!isAuth" class="menu auth-menu">
-        <button-component :color="ButtonColor.green" :size="ButtonSize.medium"
-          >Войти</button-component
-        >
+        <button-component :color="ButtonColor.green" :size="ButtonSize.medium">
+          Войти
+        </button-component>
         <button-component :color="ButtonColor.green" :size="ButtonSize.medium">
           Регистрация
         </button-component>
@@ -26,12 +26,10 @@ import ButtonComponent, {
   ButtonColor,
   ButtonSize,
 } from "@/components/UI/ButtonComponent.vue";
-import SearchFilterComponent from "./manage-components/SearchFilterComponent.vue";
 
 export default defineComponent({
   components: {
     ButtonComponent,
-    SearchFilterComponent,
   },
   setup() {
     const isAuth = ref<boolean>(false);
