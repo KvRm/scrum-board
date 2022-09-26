@@ -7,9 +7,14 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/HomeView.vue"),
   },
   {
-    path: "/personal-tasks",
-    name: "personal-task",
-    component: () => import("../views/HomeView.vue"),
+    path: "/my-tasks",
+    name: "my-tasks",
+    component: () => import("../views/MyTasksView.vue"),
+  },
+  {
+    path: "/search",
+    name: "search",
+    component: () => import("../views/SearchView.vue"),
   },
 ];
 

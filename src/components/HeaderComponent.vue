@@ -25,7 +25,7 @@ import { defineComponent, ref } from "vue";
 import ButtonComponent, {
   ButtonColor,
   ButtonSize,
-} from "@/components/UI/ButtonComponent.vue";
+} from "@/components/UI/ButtonUI.vue";
 
 export default defineComponent({
   components: {

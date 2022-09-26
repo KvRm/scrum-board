@@ -10,11 +10,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ButtonComponent, {
-  ButtonColor,
-  ButtonSize,
-} from "../UI/ButtonComponent.vue";
-import SelectComponent from "../UI/SelectComponent.vue";
+import ButtonComponent, { ButtonColor, ButtonSize } from "../UI/ButtonUI.vue";
+import SelectComponent from "../UI/SelectUI.vue";
 import SelectedColumnForm from "./SelectedColumnForm.vue";
 
 export default defineComponent({

@@ -16,9 +16,9 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import TaskTemplate from "./TaskTemplate.vue";
-import CalendarComponent from "../UI/CalendarComponent.vue";
-import InputComponent from "../UI/InputComponent.vue";
-import SelectComponent from "../UI/SelectComponent.vue";
+import CalendarComponent from "../UI/CalendarUI.vue";
+import InputComponent from "../UI/InputUI.vue";
+import SelectComponent from "../UI/SelectUI.vue";
 
 export default defineComponent({
   components: {

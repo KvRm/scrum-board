@@ -8,13 +8,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ButtonComponent, {
-  ButtonColor,
-  ButtonSize,
-} from "../UI/ButtonComponent.vue";
-import InputComponent from "../UI/InputComponent.vue";
-import SelectComponent from "../UI/SelectComponent.vue";
-import TextareaComponent from "../UI/TextareaComponent.vue";
+import ButtonComponent, { ButtonColor, ButtonSize } from "../UI/ButtonUI.vue";
+import InputComponent from "../UI/InputUI.vue";
+import SelectComponent from "../UI/SelectUI.vue";
+import TextareaComponent from "../UI/TextareaUI.vue";
 
 export default defineComponent({
   components: {

@@ -7,9 +7,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import ButtonComponent, {
-  ButtonColor,
-} from "@/components/UI/ButtonComponent.vue";
+import ButtonComponent, { ButtonColor } from "@/components/UI/ButtonUI.vue";
 import OptionsComponent from "@/components/manage-components/OptionsComponent.vue";
 import SectionsContainer from "@/components/SectionsContainer.vue";
 

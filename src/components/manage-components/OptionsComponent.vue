@@ -17,53 +17,59 @@
           Добавить задачу
         </button-component>
       </div>
-      <create-task-form v-if="createState === 'task'" />
-      <create-column-form v-if="createState === 'column'" />
+      <create-task-form v-if="optionsState.createState === 'task'" />
+      <create-column-form v-if="optionsState.createState === 'column'" />
     </div>
     <div class="utils">
-      <search-filter-component />
       <button-component
         class="create-btn"
         :color="ButtonColor.primary"
         :size="ButtonSize.large"
       >
-        Сохранить
+        {{ optionsState.primaryButtonText }}
       </button-component>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, reactive } from "vue";
 import ButtonComponent, {
   ButtonColor,
   ButtonSize,
-} from "@/components/UI/ButtonComponent.vue";
+} from "@/components/UI/ButtonUI.vue";
 import CreateTaskForm from "@/components/manage-components/CreateTaskForm.vue";
-import SearchFilterComponent from "@/components/manage-components/SearchFilterComponent.vue";
 import CreateColumnForm from "./EditColumn.vue";
 
-type createStateTypes = "task" | "column";
+interface IOptionsState {
+  createState: "task" | "column";
+  primaryButtonText: "Сохранить" | "Добавить";
+}
 
 export default defineComponent({
   components: {
     ButtonComponent,
     CreateTaskForm,
-    SearchFilterComponent,
     CreateColumnForm,
   },
 
   setup() {
-    const createState = ref<createStateTypes>("column");
+    const optionsState = reactive<IOptionsState>({
+      createState: "column",
+      primaryButtonText: "Сохранить",
+    });
 
-    const changeCreateState = (newState: createStateTypes) => {
-      createState.value = newState;
+    const changeCreateState = (newState: "task" | "column") => {
+      optionsState.createState = newState;
+      if (newState === "task") optionsState.primaryButtonText = "Добавить";
+      else if (newState === "column")
+        optionsState.primaryButtonText = "Сохранить";
     };
 
     return {
+      optionsState,
       ButtonColor,
       ButtonSize,
-      createState,
       changeCreateState,
     };
   },

@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import TextareaComponent from "../UI/TextareaComponent.vue";
+import TextareaComponent from "../UI/TextareaUI.vue";
 
 export default defineComponent({
   components: { TextareaComponent },
