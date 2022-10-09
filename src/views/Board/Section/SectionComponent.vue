@@ -6,38 +6,29 @@
         <slot name="add-task"></slot>
       </p>
     </div>
-    <TaskComponent
-      :criticalLvl="TaskCriticalLvl.high"
-      :completeDate="`08.10.2022`"
-    />
-    <TaskComponent
-      :criticalLvl="TaskCriticalLvl.high"
-      :completeDate="`31.10.2022`"
-    />
-    <TaskComponent
-      :criticalLvl="TaskCriticalLvl.high"
-      :completeDate="`31.10.2022`"
-    />
+    <TaskList :taskList="currentTaskList" />
   </section>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import TaskComponent, { TaskCriticalLvl } from "./Task/TaskPreview.vue";
+import { TaskCriticalLvl, TaskPreviewProps } from "@/types";
+import { defineComponent, PropType } from "vue";
+import TaskList from "./Task/TaskList.vue";
 
 export default defineComponent({
-  components: { TaskComponent },
+  components: { TaskList },
   props: {
     title: {
       type: String,
       required: true,
     },
+    currentTaskList: {
+      type: Array as PropType<TaskPreviewProps[]>,
+    },
   },
 
   setup() {
-    return {
-      TaskCriticalLvl,
-    };
+    return { TaskCriticalLvl };
   },
 });
 </script>
@@ -56,7 +47,8 @@ export default defineComponent({
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 5px;
+  padding-top: 20px;
+  margin-bottom: 0px;
 }
 .description {
   font-size: 14px;
