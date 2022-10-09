@@ -24,7 +24,7 @@ export default defineComponent({
       type: String,
     },
     selectList: {
-      type: Array as PropType<string[]>,
+      type: Array,
       required: true,
     },
   },

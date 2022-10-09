@@ -2,11 +2,11 @@
   <div class="calendar-container">
     <label>{{ title }}</label>
     <input
+      type="date"
       @focus="updateDate"
       class="calendar"
       :min="todayDate"
       :max="maxDate"
-      type="date"
     />
   </div>
 </template>
@@ -23,7 +23,6 @@ export default defineComponent({
   },
 
   setup() {
-    const isActive = ref<boolean>(false);
     const todayDate = ref<string>(moment().format("YYYY-MM-DD"));
     const maxDate = ref<string>(moment().add(1, "years").format("YYYY-MM-DD"));
 
@@ -32,7 +31,7 @@ export default defineComponent({
       maxDate.value = moment().add(1, "years").format("YYYY-MM-DD");
     };
 
-    return { isActive, updateDate, todayDate, maxDate };
+    return { updateDate, todayDate, maxDate };
   },
 });
 </script>

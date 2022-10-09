@@ -1,13 +1,15 @@
 <template>
   <div class="layout">
-    <header-component class="header-component"></header-component>
-    <router-view class="view" />
+    <HeaderComponent class="header-component"></HeaderComponent>
+    <div class="view">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HeaderComponent from "./components/HeaderComponent.vue";
+import HeaderComponent from "./components/Header/HeaderComponent.vue";
 
 export default defineComponent({
   components: { HeaderComponent },
@@ -22,12 +24,16 @@ export default defineComponent({
 }
 
 .header-component {
+  position: fixed;
+  top: 0;
   z-index: 1000;
+  background: white;
 }
 
 .view {
   display: relative;
   z-index: 999;
+  margin-top: 100px;
 }
 
 body {

@@ -3,15 +3,15 @@
     <div class="container header-container">
       <nav class="nav">
         <router-link class="link" to="/">На главную</router-link>
-        <router-link class="link" to="/personal-tasks">Мои задачи</router-link>
+        <router-link class="link" to="/my-tasks">Мои задачи</router-link>
       </nav>
       <div v-if="!isAuth" class="menu auth-menu">
-        <button-component :color="ButtonColor.green" :size="ButtonSize.medium">
+        <ButtonUI :color="ButtonColor.green" :size="ButtonSize.medium">
           Войти
-        </button-component>
-        <button-component :color="ButtonColor.green" :size="ButtonSize.medium">
+        </ButtonUI>
+        <ButtonUI :color="ButtonColor.green" :size="ButtonSize.medium">
           Регистрация
-        </button-component>
+        </ButtonUI>
       </div>
       <div v-else class="menu user-menu">
         <div class="user-profile">Профиль</div>
@@ -22,14 +22,14 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import ButtonComponent, {
+import ButtonUI, {
   ButtonColor,
   ButtonSize,
-} from "@/components/UI/ButtonUI.vue";
+} from "@/components/composables/UI/ButtonUI.vue";
 
 export default defineComponent({
   components: {
-    ButtonComponent,
+    ButtonUI,
   },
   setup() {
     const isAuth = ref<boolean>(false);
@@ -73,7 +73,7 @@ export default defineComponent({
 }
 
 .link:hover {
-  opacity: 0.8;
+  color: black;
   transition: all 0.2s;
 }
 </style>

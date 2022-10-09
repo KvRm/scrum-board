@@ -3,18 +3,18 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "home",
-    component: () => import("../views/HomeView.vue"),
+    name: "board",
+    component: () => import("../views/Board/BoardView.vue"),
   },
   {
     path: "/my-tasks",
     name: "my-tasks",
-    component: () => import("../views/MyTasksView.vue"),
+    component: () => import("../views/MyTasks/MyTasksView.vue"),
   },
   {
     path: "/search",
     name: "search",
-    component: () => import("../views/SearchView.vue"),
+    component: () => import("../views/Search/SearchView.vue"),
   },
 ];
 

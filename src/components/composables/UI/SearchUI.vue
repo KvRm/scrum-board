@@ -1,4 +1,6 @@
-<template><div class="search">search/filter</div></template>
+<template>
+  <div></div>
+</template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -10,8 +12,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.search {
-  display: inline;
-}
-</style>
+<style scoped></style>
