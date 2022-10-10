@@ -4,6 +4,8 @@
       <nav class="nav">
         <router-link class="link" to="/">На главную</router-link>
         <router-link class="link" to="/my-tasks">Мои задачи</router-link>
+        <router-link class="link" to="/my-boards">Мои доски</router-link>
+        <router-link class="link" to="/search">Найти</router-link>
       </nav>
       <component :is="userComponent" />
     </div>
@@ -44,12 +46,14 @@ export default defineComponent({
   grid-template-columns: 1fr auto;
   align-items: center;
   height: 60px;
+  padding: 0 10px;
 }
 
 .nav {
   display: inline-flex;
   gap: 35px;
   font-size: 18px;
+  height: 100%;
 }
 
 .link:hover {
@@ -57,7 +61,19 @@ export default defineComponent({
   transition: all 0.2s;
 }
 
-.nav .router-link-active::after {
+.nav * {
+  display: flex;
+  height: 95%;
+  align-items: center;
+  margin-top: 3px;
+  border-bottom: 3px solid #fff;
+}
+
+.nav .router-link-active {
+  border-bottom: 3px solid var(--green);
+}
+
+/* .nav .router-link-active::after {
   content: '';
   display: block;
   height: 3px;
@@ -65,5 +81,5 @@ export default defineComponent({
   margin-top: 2px;
   transition: all 0.5s;
   transition: 0.2s ease-in-out;
-}
+} */
 </style>
