@@ -99,7 +99,7 @@ export default defineComponent({
   font-weight: bold;
 }
 .task-link {
-  color: rgb(0, 76, 255);
+  color: rgb(0, 0, 200);
 }
 .red {
   color: rgb(175, 0, 0);

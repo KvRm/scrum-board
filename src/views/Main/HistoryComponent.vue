@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 export interface IBoardLink {
   name: string
@@ -26,7 +26,8 @@ export interface IBoardLink {
 
 export default defineComponent({
   setup() {
-    const boardLinks: IBoardLink[] = [
+    // Нужно получить только 18 компонентов при рендере
+    const boardLinks = ref<IBoardLink[]>([
       {
         name: 'Поиск',
         link: '/search'
@@ -50,8 +51,57 @@ export default defineComponent({
       {
         name: 'На главую',
         link: '/main'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
+      },
+      {
+        name: 'Регистрация',
+        link: '/register'
       }
-    ]
+    ])
+
     return {
       boardLinks
     }
@@ -82,6 +132,7 @@ export default defineComponent({
   text-align: center;
   font-size: 20px;
   margin: 0;
+  margin-top: 5px;
   margin-bottom: 10px;
 }
 

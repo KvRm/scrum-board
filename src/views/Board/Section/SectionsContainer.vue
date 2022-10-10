@@ -7,7 +7,7 @@
           data-tooltip-content="Добавить задачу"
           @click="logText"
         >
-          <img class="add-task-img" src="@/assets/icons/plus.svg" alt="+" />
+          <img class="add-task-img" src="@/assets/icons/plus-circle.svg" alt="+" />
         </span>
       </template>
     </SectionComponent>
@@ -18,7 +18,7 @@
           data-tooltip-content="Добавить задачу"
           @click="logText"
         >
-          <img class="add-task-img" src="@/assets/icons/plus.svg" alt="+" />
+          <img class="add-task-img" src="@/assets/icons/plus-circle.svg" alt="+" />
         </span>
       </template>
     </SectionComponent>
@@ -29,7 +29,7 @@
           data-tooltip-content="Добавить задачу"
           @click="logText"
         >
-          <img class="add-task-img" src="@/assets/icons/plus.svg" alt="+" />
+          <img class="add-task-img" src="@/assets/icons/plus-circle.svg" alt="+" />
         </span>
       </template>
     </SectionComponent>

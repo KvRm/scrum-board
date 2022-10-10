@@ -1,4 +1,6 @@
-<template><div class="board-preview">Ссылка на доску</div></template>
+<template>
+  <div class="create-board"></div>
+</template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
@@ -11,11 +13,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.board-preview {
+.create-board {
   border-radius: 10px;
-  background: var(--light-gray);
   box-shadow: 0 0 10px rgb(190, 190, 190);
   min-width: 280px;
   height: 170px;
+}
+.feather {
+  fill: gray;
 }
 </style>

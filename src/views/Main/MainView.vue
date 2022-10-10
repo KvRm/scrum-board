@@ -27,7 +27,18 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+}
+
 .aside-container {
+  display: inline-grid;
   height: 100%;
+}
+
+.main-container {
+  display: inline-grid;
 }
 </style>

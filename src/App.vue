@@ -50,6 +50,12 @@ a {
   color: var(--black);
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -60,6 +66,8 @@ a {
 :root {
   --gray: rgba(69, 69, 69, 0.536);
   --black: rgb(47, 47, 47);
+  --light-gray: rgb(245, 245, 245);
+  --light-black: rgb(55, 55, 55);
   --green: rgb(0, 115, 90);
   --dark-green: rgb(0, 81, 63);
   --red: rgb(193, 42, 42);
