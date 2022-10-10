@@ -10,7 +10,7 @@
       small: size === 'small',
       medium: size === 'medium',
       large: size === 'large',
-      extraLarge: size === 'extraLarge',
+      extraLarge: size === 'extraLarge'
     }"
   >
     <slot />
@@ -18,34 +18,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType } from 'vue'
 
 export enum ButtonColor {
-  primary = "primary",
-  green = "green",
-  red = "red",
-  blue = "blue",
+  primary = 'primary',
+  green = 'green',
+  red = 'red',
+  blue = 'blue'
 }
 export enum ButtonSize {
-  small = "small",
-  medium = "medium",
-  large = "large",
-  extraLarge = "extraLarge",
+  small = 'small',
+  medium = 'medium',
+  large = 'large',
+  extraLarge = 'extraLarge'
 }
 
 export default defineComponent({
   props: {
     color: {
       type: String as PropType<ButtonColor>,
-      required: true,
+      required: true
     },
     size: {
       type: String as PropType<ButtonSize>,
       required: true,
-      default: "small",
-    },
-  },
-});
+      default: 'small'
+    }
+  }
+})
 </script>
 
 <style scoped>

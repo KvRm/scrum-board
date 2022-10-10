@@ -9,24 +9,24 @@
 </template>
 
 <script lang="ts">
-import { TaskPreviewProps, TaskCriticalLvl } from "@/types";
-import { defineComponent, PropType } from "vue";
-import TaskPreview from "./TaskPreview.vue";
+import { TaskPreviewProps, TaskCriticalLvl } from '@/types'
+import { defineComponent, PropType } from 'vue'
+import TaskPreview from './TaskPreview.vue'
 
 export default defineComponent({
   components: {
-    TaskPreview,
+    TaskPreview
   },
   props: {
-    taskList: Array as PropType<TaskPreviewProps[]>,
+    taskList: Array as PropType<TaskPreviewProps[]>
   },
 
   setup() {
     return {
-      TaskCriticalLvl,
-    };
-  },
-});
+      TaskCriticalLvl
+    }
+  }
+})
 </script>
 
 <style scoped></style>

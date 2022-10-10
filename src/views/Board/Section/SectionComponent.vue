@@ -11,26 +11,26 @@
 </template>
 
 <script lang="ts">
-import { TaskCriticalLvl, TaskPreviewProps } from "@/types";
-import { defineComponent, PropType } from "vue";
-import TaskList from "./Task/TaskList.vue";
+import { TaskCriticalLvl, TaskPreviewProps } from '@/types'
+import { defineComponent, PropType } from 'vue'
+import TaskList from './Task/TaskList.vue'
 
 export default defineComponent({
   components: { TaskList },
   props: {
     title: {
       type: String,
-      required: true,
+      required: true
     },
     currentTaskList: {
-      type: Array as PropType<TaskPreviewProps[]>,
-    },
+      type: Array as PropType<TaskPreviewProps[]>
+    }
   },
 
   setup() {
-    return { TaskCriticalLvl };
-  },
-});
+    return { TaskCriticalLvl }
+  }
+})
 </script>
 
 <style scoped>

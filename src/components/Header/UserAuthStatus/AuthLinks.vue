@@ -14,24 +14,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 import ButtonUI, {
   ButtonColor,
-  ButtonSize,
-} from "@/components/composables/UI/ButtonUI.vue";
+  ButtonSize
+} from '@/components/composables/UI/ButtonUI.vue'
 
 export default defineComponent({
   components: {
-    ButtonUI,
+    ButtonUI
   },
 
   setup() {
     return {
       ButtonColor,
-      ButtonSize,
-    };
-  },
-});
+      ButtonSize
+    }
+  }
+})
 </script>
 
 <style scoped>

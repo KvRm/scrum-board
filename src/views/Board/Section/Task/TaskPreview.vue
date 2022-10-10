@@ -16,7 +16,7 @@
               red: criticalLvl === 'Очень высокая',
               orange: criticalLvl === 'Высокая',
               blue: criticalLvl === 'Средняя',
-              green: criticalLvl === 'Низкая',
+              green: criticalLvl === 'Низкая'
             }"
           >
             {{ criticalLvl }}
@@ -38,31 +38,31 @@
 </template>
 
 <script lang="ts">
-import { TaskCriticalLvl } from "@/types";
-import { defineComponent, onMounted, PropType, ref } from "vue";
+import { TaskCriticalLvl } from '@/types'
+import { defineComponent, PropType, ref } from 'vue'
 
 export default defineComponent({
   props: {
     criticalLvl: {
       type: String as PropType<TaskCriticalLvl>,
-      required: true,
+      required: true
     },
     // add vuelidate
     completeDate: {
       type: String,
-      required: true,
+      required: true
     },
     author: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
-  setup(props) {
-    const isTaskRelevant = ref<boolean>(true);
+  setup() {
+    const isTaskRelevant = ref<boolean>(true)
 
-    return { isTaskRelevant };
-  },
-});
+    return { isTaskRelevant }
+  }
+})
 </script>
 
 <style scoped>

@@ -12,28 +12,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import moment from "moment";
+import { defineComponent, ref } from 'vue'
+import moment from 'moment'
 
 export default defineComponent({
   props: {
     title: {
-      type: String,
-    },
+      type: String
+    }
   },
 
   setup() {
-    const todayDate = ref<string>(moment().format("YYYY-MM-DD"));
-    const maxDate = ref<string>(moment().add(1, "years").format("YYYY-MM-DD"));
+    const todayDate = ref<string>(moment().format('YYYY-MM-DD'))
+    const maxDate = ref<string>(moment().add(1, 'years').format('YYYY-MM-DD'))
 
     const updateDate = () => {
-      todayDate.value = moment().format("YYYY-MM-DD");
-      maxDate.value = moment().add(1, "years").format("YYYY-MM-DD");
-    };
+      todayDate.value = moment().format('YYYY-MM-DD')
+      maxDate.value = moment().add(1, 'years').format('YYYY-MM-DD')
+    }
 
-    return { updateDate, todayDate, maxDate };
-  },
-});
+    return { updateDate, todayDate, maxDate }
+  }
+})
 </script>
 
 <style scoped>

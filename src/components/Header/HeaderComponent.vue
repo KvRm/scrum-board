@@ -11,25 +11,25 @@
 </template>
 
 <script lang="ts">
-import { Component, computed, defineComponent, ref } from "vue";
-import AuthLinks from "./UserAuthStatus/AuthLinks.vue";
-import UserProfile from "./UserAuthStatus/UserProfile.vue";
+import { Component, computed, defineComponent, ref } from 'vue'
+import AuthLinks from './UserAuthStatus/AuthLinks.vue'
+import UserProfile from './UserAuthStatus/UserProfile.vue'
 
 export default defineComponent({
   setup() {
-    const isAuth = ref<boolean>(false);
+    const isAuth = ref<boolean>(false)
 
     const userComponent: Component = computed(() => {
-      if (isAuth.value) return UserProfile;
-      return AuthLinks;
-    });
+      if (isAuth.value) return UserProfile
+      return AuthLinks
+    })
 
     return {
       isAuth,
-      userComponent,
-    };
-  },
-});
+      userComponent
+    }
+  }
+})
 </script>
 
 <style scoped>
@@ -55,5 +55,15 @@ export default defineComponent({
 .link:hover {
   color: black;
   transition: all 0.2s;
+}
+
+.nav .router-link-active::after {
+  content: '';
+  display: block;
+  height: 3px;
+  background: var(--green);
+  margin-top: 2px;
+  transition: all 0.5s;
+  transition: 0.2s ease-in-out;
 }
 </style>

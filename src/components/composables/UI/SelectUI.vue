@@ -16,23 +16,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
     title: {
-      type: String,
+      type: String
     },
     selectList: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
 
   setup() {
-    return {};
-  },
-});
+    return {}
+  }
+})
 </script>
 
 <style scoped>

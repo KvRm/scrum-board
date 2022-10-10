@@ -4,17 +4,17 @@
 </template>
 
 <script lang="ts">
-import SectionsContainer from "@/views/Board/Section/SectionsContainer.vue";
-import { defineComponent } from "vue";
+import SectionsContainer from '@/views/Board/Section/SectionsContainer.vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "HomeView",
+  name: 'HomeView',
   components: { SectionsContainer },
 
   setup() {
-    return { boardName: "Тестовая доска" };
-  },
-});
+    return { boardName: 'Тестовая доска' }
+  }
+})
 </script>
 
 <style scoped>

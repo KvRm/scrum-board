@@ -1,5 +1,5 @@
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 
-// const auth = getAuth();
+// const auth = getAuth()
 
-// auth.
+// auth

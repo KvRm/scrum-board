@@ -12,22 +12,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
     placeholder: {
-      type: String,
+      type: String
     },
     title: {
-      type: String,
-    },
+      type: String
+    }
   },
 
   setup() {
-    return {};
-  },
-});
+    return {}
+  }
+})
 </script>
 
 <style scoped>

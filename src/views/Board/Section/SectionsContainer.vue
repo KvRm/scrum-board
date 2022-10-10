@@ -37,61 +37,61 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import SectionComponent from "@/views/Board/Section/SectionComponent.vue";
-import { TaskCriticalLvl, TaskPreviewProps } from "@/types";
+import { defineComponent } from 'vue'
+import SectionComponent from '@/views/Board/Section/SectionComponent.vue'
+import { TaskCriticalLvl, TaskPreviewProps } from '@/types'
 
 export default defineComponent({
   components: { SectionComponent },
 
   setup() {
     function logText() {
-      console.log("Нерешенные");
+      console.log('Нерешенные')
     }
     const currentTaskList: TaskPreviewProps[] = [
       {
         criticalLvl: TaskCriticalLvl.veryHigh,
-        completeDate: "31.10.2022",
-        author: "Rustam",
+        completeDate: '31.10.2022',
+        author: 'Rustam'
       },
       {
         criticalLvl: TaskCriticalLvl.veryHigh,
-        completeDate: "31.10.2022",
-        author: "Rustam",
+        completeDate: '31.10.2022',
+        author: 'Rustam'
       },
       {
         criticalLvl: TaskCriticalLvl.veryHigh,
-        completeDate: "31.10.2022",
-        author: "Rustam",
-      },
-    ];
+        completeDate: '31.10.2022',
+        author: 'Rustam'
+      }
+    ]
     const currentTaskList2: TaskPreviewProps[] = [
       {
         criticalLvl: TaskCriticalLvl.veryHigh,
-        completeDate: "31.10.2022",
-        author: "Rustam",
+        completeDate: '31.10.2022',
+        author: 'Rustam'
       },
       {
         criticalLvl: TaskCriticalLvl.veryHigh,
-        completeDate: "31.10.2022",
-        author: "Rustam",
-      },
-    ];
+        completeDate: '31.10.2022',
+        author: 'Rustam'
+      }
+    ]
     const currentTaskList3: TaskPreviewProps[] = [
       {
         criticalLvl: TaskCriticalLvl.veryHigh,
-        completeDate: "31.10.2022",
-        author: "Rustam",
-      },
-    ];
+        completeDate: '31.10.2022',
+        author: 'Rustam'
+      }
+    ]
     return {
       logText,
       currentTaskList,
       currentTaskList2,
-      currentTaskList3,
-    };
-  },
-});
+      currentTaskList3
+    }
+  }
+})
 </script>
 
 <style scoped>

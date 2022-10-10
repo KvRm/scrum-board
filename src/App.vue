@@ -8,18 +8,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HeaderComponent from "./components/Header/HeaderComponent.vue";
+import { defineComponent } from 'vue'
+import HeaderComponent from './components/Header/HeaderComponent.vue'
 
 export default defineComponent({
-  components: { HeaderComponent },
-});
+  components: { HeaderComponent }
+})
 </script>
 
 <style>
 * {
   box-sizing: border-box;
-  font-family: "Noto Sans", sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-weight: 500;
 }
 
@@ -53,16 +53,6 @@ a {
   max-width: 1400px;
   margin: 0 auto;
   padding: 10px;
-}
-
-.router-link-active::after {
-  content: "";
-  display: block;
-  height: 3px;
-  background: var(--green);
-  margin-top: 2px;
-  transition: all 0.5s;
-  transition: 0.2s ease-in-out;
 }
 
 :root {
