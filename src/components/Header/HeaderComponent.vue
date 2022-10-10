@@ -2,9 +2,8 @@
   <header class="header">
     <div class="container header-container">
       <nav class="nav">
-        <router-link class="link" to="/">На главную</router-link>
+        <router-link class="link" to="/main">На главную</router-link>
         <router-link class="link" to="/my-tasks">Мои задачи</router-link>
-        <router-link class="link" to="/my-boards">Мои доски</router-link>
         <router-link class="link" to="/search">Найти</router-link>
       </nav>
       <component :is="userComponent" />
@@ -72,14 +71,4 @@ export default defineComponent({
 .nav .router-link-active {
   border-bottom: 3px solid var(--green);
 }
-
-/* .nav .router-link-active::after {
-  content: '';
-  display: block;
-  height: 3px;
-  background: var(--green);
-  margin-top: 2px;
-  transition: all 0.5s;
-  transition: 0.2s ease-in-out;
-} */
 </style>

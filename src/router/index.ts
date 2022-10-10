@@ -3,6 +3,12 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    redirect: () => {
+      return { path: '/main' }
+    }
+  },
+  {
+    path: '/main',
     name: 'main',
     component: () => import('../views/Main/MainView.vue')
   },
@@ -15,11 +21,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/my-tasks',
     name: 'my-tasks',
     component: () => import('../views/MyTasks/MyTasksView.vue')
-  },
-  {
-    path: '/my-boards',
-    name: 'my-boards',
-    component: () => import('../views/MyBoards/MyBoardsView.vue')
   },
   {
     path: '/search',

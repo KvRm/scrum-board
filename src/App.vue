@@ -34,6 +34,7 @@ export default defineComponent({
   display: relative;
   z-index: 999;
   margin-top: 100px;
+  min-height: calc(100vh - 100px);
 }
 
 body {
@@ -53,6 +54,7 @@ a {
   max-width: 1400px;
   margin: 0 auto;
   padding: 10px;
+  height: 100%;
 }
 
 :root {

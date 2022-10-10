@@ -1,12 +1,7 @@
 <template>
   <div class="task">
     <h5 class="title">Имя таски</h5>
-    <p class="description">
-      ОписаниеОписаниеОписание Оп и с а ни е О п и с а н и е О п и са н и е О п
-      и са н и е О пи с а ни е a sd s g f hd d
-      fsgdfsfdsgfsdgfsgsfagsfdgfsgsagadsgasg
-      ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание
-    </p>
+    <p class="description">ОписаниеОписаниеОписаниеОписаниеОписание</p>
     <div class="task-state">
       <div class="additional-info">
         <p class="critical-lvl">
