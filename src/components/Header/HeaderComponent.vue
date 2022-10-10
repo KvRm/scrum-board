@@ -5,39 +5,28 @@
         <router-link class="link" to="/">На главную</router-link>
         <router-link class="link" to="/my-tasks">Мои задачи</router-link>
       </nav>
-      <div v-if="!isAuth" class="menu auth-menu">
-        <ButtonUI :color="ButtonColor.green" :size="ButtonSize.medium">
-          Войти
-        </ButtonUI>
-        <ButtonUI :color="ButtonColor.green" :size="ButtonSize.medium">
-          Регистрация
-        </ButtonUI>
-      </div>
-      <div v-else class="menu user-menu">
-        <div class="user-profile">Профиль</div>
-      </div>
+      <component :is="userComponent" />
     </div>
   </header>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import ButtonUI, {
-  ButtonColor,
-  ButtonSize,
-} from "@/components/composables/UI/ButtonUI.vue";
+import { Component, computed, defineComponent, ref } from "vue";
+import AuthLinks from "./UserAuthStatus/AuthLinks.vue";
+import UserProfile from "./UserAuthStatus/UserProfile.vue";
 
 export default defineComponent({
-  components: {
-    ButtonUI,
-  },
   setup() {
     const isAuth = ref<boolean>(false);
 
+    const userComponent: Component = computed(() => {
+      if (isAuth.value) return UserProfile;
+      return AuthLinks;
+    });
+
     return {
       isAuth,
-      ButtonColor,
-      ButtonSize,
+      userComponent,
     };
   },
 });
@@ -61,15 +50,6 @@ export default defineComponent({
   display: inline-flex;
   gap: 35px;
   font-size: 18px;
-}
-
-.menu {
-  display: inline;
-}
-
-.auth-menu {
-  display: flex;
-  gap: 10px;
 }
 
 .link:hover {
