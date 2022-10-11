@@ -7,7 +7,11 @@
           data-tooltip-content="Добавить задачу"
           @click="logText"
         >
-          <img class="add-task-img" src="@/assets/icons/plus-circle.svg" alt="+" />
+          <img
+            class="add-task-img"
+            src="@/assets/icons/plus-circle.svg"
+            alt="+"
+          />
         </span>
       </template>
     </SectionComponent>
@@ -18,7 +22,11 @@
           data-tooltip-content="Добавить задачу"
           @click="logText"
         >
-          <img class="add-task-img" src="@/assets/icons/plus-circle.svg" alt="+" />
+          <img
+            class="add-task-img"
+            src="@/assets/icons/plus-circle.svg"
+            alt="+"
+          />
         </span>
       </template>
     </SectionComponent>
@@ -29,7 +37,11 @@
           data-tooltip-content="Добавить задачу"
           @click="logText"
         >
-          <img class="add-task-img" src="@/assets/icons/plus-circle.svg" alt="+" />
+          <img
+            class="add-task-img"
+            src="@/assets/icons/plus-circle.svg"
+            alt="+"
+          />
         </span>
       </template>
     </SectionComponent>
@@ -135,10 +147,9 @@ export default defineComponent({
   transform: translate(-50%, 0);
 }
 .add-task-img {
-  position: absolute;
-  bottom: 0px;
+  position: relative;
+  bottom: -6px;
   height: 25px;
-  margin-left: 10px;
 }
 .add-task-img:hover {
   opacity: 0.6;

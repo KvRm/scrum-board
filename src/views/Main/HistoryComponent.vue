@@ -51,54 +51,6 @@ export default defineComponent({
       {
         name: 'На главую',
         link: '/main'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
       }
     ])
 
@@ -119,13 +71,9 @@ export default defineComponent({
   border-radius: 5px;
   padding: 10px;
   margin: 0;
-  color: var(--dark-green);
-  background: rgb(158, 255, 214);
-  background: linear-gradient(
-    210deg,
-    rgba(0, 81, 63, 0.1) 0%,
-    rgba(0, 196, 134, 0.3) 100%
-  );
+  color: var(--black);
+  background: var(--light-gray);
+  background: linear-gradient(210deg, var(--light-gray) 0%, lightgray 100%);
 }
 
 .title {
@@ -144,7 +92,7 @@ export default defineComponent({
 
 .board-link,
 a {
-  color: var(--dark-green);
+  color: var(--black);
   text-decoration: underline;
   list-style: none;
   margin-bottom: 6px;

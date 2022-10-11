@@ -1,11 +1,11 @@
 <template>
   <h4 class="board-group-title">Мои доски</h4>
   <ul class="board-list">
-    <li class="board-item" v-for="(item, index) in items" :key="index">
-      <BoardPreview />
-    </li>
     <li class="board-item">
       <CreateBoard />
+    </li>
+    <li class="board-item" v-for="(item, index) in items" :key="index">
+      <BoardPreview />
     </li>
   </ul>
   <h4 class="board-group-title">Все доски</h4>
@@ -28,7 +28,11 @@ export default defineComponent({
   },
 
   setup() {
-    return { items: [1, 2] }
+    return {
+      items: [
+        1, 2, 3, 3, 3, 3, 3, 3, 33, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
+      ]
+    }
   }
 })
 </script>
