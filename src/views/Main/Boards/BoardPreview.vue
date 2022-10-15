@@ -23,10 +23,12 @@ export default defineComponent({
   align-content: center;
   min-width: 280px;
   height: 170px;
-  font-size: 16px;
+  padding: 0 16px;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgb(221, 221, 221);
+  border: 1px solid lightgray;
+  box-shadow: 0 0 10px rgb(221, 221, 221);
   background: #fff;
+  font-size: 16px;
 }
 .board-preview:hover {
   background: var(--light-gray);
@@ -35,7 +37,6 @@ export default defineComponent({
 
 .title {
   text-align: justify;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 0;
 }
 </style>

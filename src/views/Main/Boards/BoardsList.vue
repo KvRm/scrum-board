@@ -40,9 +40,21 @@ export default defineComponent({
 <style scoped>
 .board-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 25px;
   margin-bottom: 40px;
+}
+
+@media (max-width: 2000px) {
+  .board-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 1700px) {
+  .board-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 @media (max-width: 1350px) {

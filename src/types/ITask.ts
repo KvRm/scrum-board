@@ -1,20 +1,19 @@
-export interface IMyTask {
-  title: string
+export interface IMyTask extends ITaskPreview {
   boardName: string
   boardLink: string
   criticalLvl: TaskCriticalLvl
   completeDate: string
   author: string
-  link: string
 }
 
-export interface ITaskPreview extends IMyTask {
-  executor: string
-  shortDescription: string
+export interface ITaskPreview {
+  title: string
+  link: string
 }
 
 export interface ITask extends ITaskPreview {
   description: string
+  executor: string
   comments: IComment[]
 }
 

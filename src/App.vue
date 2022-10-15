@@ -38,7 +38,7 @@ export default defineComponent({
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -57,16 +57,15 @@ ul {
 }
 
 .container {
-  max-width: 1400px;
-  margin: 0 auto;
   padding: 10px;
+  margin: 0 50px;
   height: 100%;
 }
 
 :root {
   --gray: rgba(69, 69, 69, 0.536);
   --black: rgb(47, 47, 47);
-  --light-gray: rgb(245, 245, 245);
+  --light-gray: rgb(246, 248, 250);
   --light-black: rgb(55, 55, 55);
   --green: rgb(0, 115, 90);
   --dark-green: rgb(0, 81, 63);

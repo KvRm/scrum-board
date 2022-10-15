@@ -7,10 +7,19 @@
     </span>
     <span class="board">
       <router-link class="link" :to="'' + boardLink">
-        {{ boardName }}</router-link
-      >
+        {{ boardName }}
+      </router-link>
     </span>
-    <span class="criticalLvl">{{ criticalLvl }}</span>
+    <span
+      class="criticalLvl"
+      :class="{
+        red: criticalLvl === 'Очень высокая',
+        orange: criticalLvl === 'Высокая',
+        blue: criticalLvl === 'Средняя',
+        green: criticalLvl === 'Низкая'
+      }"
+      >{{ criticalLvl }}
+    </span>
     <span class="completeDate">{{ completeDate }}</span>
     <span class="author">
       <router-link class="link" to="someUserLink">
@@ -68,11 +77,25 @@ export default defineComponent({
   grid-template-columns: 3fr 3fr 2fr 2fr 2fr;
   align-items: center;
   justify-items: center;
-  height: 60px;
+  height: 40px;
 }
 
 .link:hover {
-  color: var(--blue);
+  color: rgb(30, 30, 255);
   text-decoration: underline;
+}
+
+/* Сделать эмодзи в зависимости от критичности */
+.red {
+  color: rgba(255, 59, 59);
+}
+.orange {
+  color: rgba(255, 101, 12);
+}
+.blue {
+  color: rgba(0, 0, 255);
+}
+.green {
+  color: rgba(0, 115, 90);
 }
 </style>

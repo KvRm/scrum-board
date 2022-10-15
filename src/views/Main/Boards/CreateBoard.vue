@@ -17,14 +17,11 @@ export default defineComponent({
 <style scoped>
 .create-board {
   display: grid;
-  position: relative;
-  align-items: center;
   justify-content: center;
   border-radius: 10px;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 10px rgb(221, 221, 221);
   background: #fff;
-  box-shadow: 0 0 15px rgb(221, 221, 221);
-  min-width: 280px;
-  height: 170px;
 }
 .plus-icon {
   align-self: center;

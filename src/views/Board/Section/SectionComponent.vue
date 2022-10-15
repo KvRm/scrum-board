@@ -1,12 +1,8 @@
 <template>
   <section class="section">
-    <div class="section-info">
-      <p class="title">
-        {{ title }}
-        <slot name="add-task"></slot>
-      </p>
-    </div>
+    <p class="title">{{ title }}</p>
     <TaskList :taskList="currentTaskList" />
+    <span class="add-button">+ Добавить</span>
   </section>
 </template>
 
@@ -37,22 +33,30 @@ export default defineComponent({
 .section {
   display: grid;
   align-content: flex-start;
-  justify-content: center;
-  gap: 20px;
-  padding: 0 10px;
+  gap: 10px;
+  padding: 10px;
+  margin: 5px 0;
   border-radius: 10px;
-}
-
-.section-info {
-  text-align: center;
-  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 5px lightgray;
+  background: var(--light-gray);
 }
 
 .title {
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  padding-top: 20px;
-  margin-bottom: 0px;
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+
+.add-button {
+  justify-self: center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  text-decoration: underline;
 }
 </style>
