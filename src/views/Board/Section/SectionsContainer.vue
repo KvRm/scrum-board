@@ -63,6 +63,8 @@ export default defineComponent({
     const currentTaskList: ITaskPreview[] = [
       {
         title: 'Название задачи',
+        boardName: 'Тестовая доска',
+        boardLink: 'rustam/test-board',
         shortDescription:
           'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
         criticalLvl: TaskCriticalLvl.veryHigh,
@@ -73,6 +75,8 @@ export default defineComponent({
       },
       {
         title: 'Название задачи',
+        boardName: 'Тестовая доска',
+        boardLink: 'rustam/test-board',
         shortDescription:
           'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
 
@@ -84,6 +88,8 @@ export default defineComponent({
       },
       {
         title: 'Название задачи',
+        boardName: 'Тестовая доска',
+        boardLink: 'rustam/test-board',
         shortDescription:
           'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
 
@@ -97,6 +103,8 @@ export default defineComponent({
     const currentTaskList2: ITaskPreview[] = [
       {
         title: 'Название задачи',
+        boardName: 'Тестовая доска',
+        boardLink: 'rustam/test-board',
         shortDescription:
           'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
 
@@ -108,6 +116,8 @@ export default defineComponent({
       },
       {
         title: 'Название задачи',
+        boardName: 'Тестовая доска',
+        boardLink: 'rustam/test-board',
         shortDescription:
           'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
         criticalLvl: TaskCriticalLvl.veryHigh,
@@ -120,6 +130,8 @@ export default defineComponent({
     const currentTaskList3: ITaskPreview[] = [
       {
         title: 'Название задачи',
+        boardName: 'Тестовая доска',
+        boardLink: 'rustam/test-board',
         shortDescription:
           'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
         criticalLvl: TaskCriticalLvl.veryHigh,
@@ -143,12 +155,12 @@ export default defineComponent({
 .sections-container {
   display: grid;
   overflow-x: scroll;
-  gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   min-height: 100vh;
   max-width: 1700px;
   margin: 0 auto;
   padding: 0px 10px;
+  font-size: 14px;
 }
 
 .add-task {

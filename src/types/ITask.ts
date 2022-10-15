@@ -1,12 +1,16 @@
-export interface ITaskPreview {
+export interface IMyTask {
   title: string
+  boardName: string
+  boardLink: string
   criticalLvl: TaskCriticalLvl
   completeDate: string
   author: string
+  link: string
+}
+
+export interface ITaskPreview extends IMyTask {
   executor: string
   shortDescription: string
-  // после добавления ссылок сделать обязательным
-  link?: string
 }
 
 export interface ITask extends ITaskPreview {
