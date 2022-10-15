@@ -1,11 +1,19 @@
 <template>
   <div class="task">
     <h5 class="title">Имя таски</h5>
-    <p class="description">ОписаниеОписаниеОписаниеОписаниеОписание</p>
+    <p class="description">
+      fnsdfndsjnj sn sa sa sa sa sa sa asj sngsfj dgndfsj gndfjg ndfsjg
+      ndfsjgndfsj ndfsjg ndfsj ngefj gndfsj gns fnsdfndsjnj sn sa sa sa sa sa sa
+      asj sngsfj dgndfsj gndfjg ndfsjg ndfsjgndfsj ndfsjg ndfsj ngefj gndfsj gns
+    </p>
     <div class="task-state">
       <div class="additional-info">
+        <p class="complete-time">
+          Крайний срок:
+          <span>{{ completeDate }}</span>
+        </p>
         <p class="critical-lvl">
-          Критичноcть:
+          Критичность:
           <span
             :class="{
               red: criticalLvl === 'Очень высокая',
@@ -17,17 +25,18 @@
             {{ criticalLvl }}
           </span>
         </p>
-        <p class="complete-time">
-          Крайний срок:
-          <span>{{ completeDate }}</span>
+        <p class="author">
+          Автор:
+          <span>{{ author ? author : 'Не назначен' }}</span>
         </p>
-        <router-link to="task/:id">
-          <span class="task-link">К таске -></span>
-        </router-link>
+        <p class="executor">
+          Исполнитель:
+          <span>{{ executor ? executor : 'Не назначен' }}</span>
+        </p>
       </div>
-      <div class="author">
-        Автор: <span>{{ author }}</span>
-      </div>
+      <router-link class="task-link" to="task/:id">
+        <span>Подробнее...</span>
+      </router-link>
     </div>
   </div>
 </template>
@@ -50,6 +59,9 @@ export default defineComponent({
     author: {
       type: String,
       required: true
+    },
+    executor: {
+      type: String
     }
   },
   setup() {
@@ -64,14 +76,14 @@ export default defineComponent({
 .task {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  border: 2px solid var(--gray);
-  min-width: 300px;
-  max-height: 400px;
-  border-radius: 5px;
+  width: 450px;
+  border-radius: 10px;
   background: #fff;
-  padding: 0px 8px 8px 8px;
+  padding: 0px 22px 14px 22px;
   line-height: 14px;
-  font-size: 14px;
+  font-size: 16px;
+  box-shadow: 0 0 15px rgb(221, 221, 221);
+  overflow: hidden;
 }
 
 .title {
@@ -79,9 +91,12 @@ export default defineComponent({
   font-size: 20px;
   line-height: 0;
   padding: 0;
+  margin-top: 34px;
+  margin-bottom: 20px;
 }
 .task-state {
   display: grid;
+  grid-template-columns: 1fr auto;
 }
 .author {
   justify-self: flex-end;
@@ -89,28 +104,39 @@ export default defineComponent({
 }
 .description {
   font-weight: 300;
-  line-height: 24px;
-  overflow-x: scroll;
+  line-height: 22px;
+  box-sizing: border-box;
+  text-align: justify;
   padding: 0;
   margin: 0;
 }
+.additional-info {
+  margin-top: 6px;
+  line-height: 7px;
+}
+
 .complete-time span,
-.author span {
+.author span,
+.critical-lvl span,
+.executor span {
   font-weight: bold;
 }
 .task-link {
   color: rgb(0, 0, 200);
+  display: inline-grid;
+  align-self: flex-end;
+  padding-bottom: 12px;
 }
 .red {
-  color: rgb(175, 0, 0);
+  color: rgba(255, 59, 59);
 }
 .orange {
-  color: rgb(185, 80, 0);
+  color: rgba(255, 101, 12);
 }
 .blue {
-  color: blue;
+  color: rgba(0, 0, 255);
 }
 .green {
-  color: var(--green);
+  color: rgba(0, 115, 90);
 }
 </style>

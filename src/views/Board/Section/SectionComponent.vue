@@ -37,23 +37,22 @@ export default defineComponent({
 .section {
   display: grid;
   align-content: flex-start;
-  gap: 15px;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 10px;
+  border-radius: 10px;
 }
+
 .section-info {
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
+
 .title {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
   padding-top: 20px;
   margin-bottom: 0px;
-}
-.description {
-  font-size: 14px;
-  padding: 0 5px;
-  margin-top: 0;
-  opacity: 0.95;
 }
 </style>

@@ -21,14 +21,21 @@ export default defineComponent({
   display: grid;
   justify-content: center;
   align-content: center;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgb(190, 190, 190);
-  background: #fff;
   min-width: 280px;
   height: 170px;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgb(221, 221, 221);
+  background: #fff;
 }
 .board-preview:hover {
   background: var(--light-gray);
   cursor: pointer;
+}
+
+.title {
+  text-align: justify;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 </style>

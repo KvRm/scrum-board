@@ -33,7 +33,7 @@ export default defineComponent({
 .view {
   display: relative;
   z-index: 999;
-  margin-top: 100px;
+  padding-top: 100px;
   min-height: calc(100vh - 100px);
 }
 

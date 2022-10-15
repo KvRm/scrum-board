@@ -26,7 +26,6 @@ export interface IBoardLink {
 
 export default defineComponent({
   setup() {
-    // Нужно получить только 18 компонентов при рендере
     const boardLinks = ref<IBoardLink[]>([
       {
         name: 'Поиск',
@@ -67,21 +66,19 @@ export default defineComponent({
   align-content: flex-start;
   box-sizing: border-box;
   width: 400px;
-  height: 600px;
-  border-radius: 5px;
+  height: 626px;
   padding: 10px;
   margin: 0;
   color: var(--black);
-  background: var(--light-gray);
-  background: linear-gradient(210deg, var(--light-gray) 0%, lightgray 100%);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgb(221, 221, 221);
 }
 
 .title {
   text-align: center;
   font-size: 20px;
-  margin: 0;
-  margin-top: 5px;
-  margin-bottom: 10px;
+  margin: 5px 0 10px 0;
 }
 
 .board-list {

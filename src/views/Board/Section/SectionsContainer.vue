@@ -64,36 +64,42 @@ export default defineComponent({
       {
         criticalLvl: TaskCriticalLvl.veryHigh,
         completeDate: '31.10.2022',
-        author: 'Rustam'
+        author: 'Автор',
+        executor: 'Исполнитель'
       },
       {
-        criticalLvl: TaskCriticalLvl.veryHigh,
+        criticalLvl: TaskCriticalLvl.high,
         completeDate: '31.10.2022',
-        author: 'Rustam'
+        author: 'Автор',
+        executor: 'Исполнитель'
       },
       {
-        criticalLvl: TaskCriticalLvl.veryHigh,
+        criticalLvl: TaskCriticalLvl.medium,
         completeDate: '31.10.2022',
-        author: 'Rustam'
+        author: 'Автор',
+        executor: 'Исполнитель'
       }
     ]
     const currentTaskList2: TaskPreviewProps[] = [
       {
-        criticalLvl: TaskCriticalLvl.veryHigh,
+        criticalLvl: TaskCriticalLvl.low,
         completeDate: '31.10.2022',
-        author: 'Rustam'
+        author: 'Автор',
+        executor: 'Исполнитель'
       },
       {
         criticalLvl: TaskCriticalLvl.veryHigh,
         completeDate: '31.10.2022',
-        author: 'Rustam'
+        author: 'Автор',
+        executor: 'Исполнитель'
       }
     ]
     const currentTaskList3: TaskPreviewProps[] = [
       {
         criticalLvl: TaskCriticalLvl.veryHigh,
         completeDate: '31.10.2022',
-        author: 'Rustam'
+        author: 'Автор',
+        executor: 'Исполнитель'
       }
     ]
     return {
@@ -122,6 +128,7 @@ export default defineComponent({
   transition: all 0.5s ease;
   cursor: pointer;
 }
+
 .add-task::after {
   content: attr(data-tooltip-content);
   padding: 8px;
@@ -146,19 +153,21 @@ export default defineComponent({
   opacity: 1;
   transform: translate(-50%, 0);
 }
+
 .add-task-img {
   position: relative;
   bottom: -6px;
   height: 25px;
 }
+
 .add-task-img:hover {
   opacity: 0.6;
 }
+
 .title {
   display: grid;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 5px;
 }
 </style>

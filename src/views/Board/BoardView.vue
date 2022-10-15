@@ -1,30 +1,39 @@
 <template>
   <div class="board">
-    <h2 class="title">{{ boardName }}</h2>
-    <div class="manage">
-      <ButtonUI :color="ButtonColor.blue" :size="ButtonSize.small">
-        Ссылка-приглашение
-      </ButtonUI>
-      <ButtonUI
-        v-if="isCreator"
-        :color="ButtonColor.red"
-        :size="ButtonSize.small"
-      >
-        Покинуть доску
-      </ButtonUI>
-      <ButtonUI v-else :color="ButtonColor.red" :size="ButtonSize.small">
-        Удалить доску
-      </ButtonUI>
+    <div class="board-header">
+      <h2 class="title">{{ boardName }}</h2>
+      <div class="controllers">
+        <ButtonUI :color="ButtonColor.blue" :size="ButtonSize.small">
+          Ссылка-приглашение
+        </ButtonUI>
+        <ButtonUI :color="ButtonColor.blue" :size="ButtonSize.small">
+          Участники
+        </ButtonUI>
+        <ButtonUI
+          v-if="!isCreator"
+          :color="ButtonColor.blue"
+          :size="ButtonSize.small"
+        >
+          Редактировать
+        </ButtonUI>
+        <ButtonUI
+          v-if="!isCreator"
+          :color="ButtonColor.red"
+          :size="ButtonSize.small"
+        >
+          Покинуть доску
+        </ButtonUI>
+        <ButtonUI v-else :color="ButtonColor.red" :size="ButtonSize.small">
+          Удалить доску
+        </ButtonUI>
+      </div>
     </div>
     <SectionsContainer />
   </div>
 </template>
 
 <script lang="ts">
-import ButtonUI, {
-  ButtonColor,
-  ButtonSize
-} from '@/components/composables/UI/ButtonUI.vue'
+import ButtonUI, { ButtonColor, ButtonSize } from '@/components/UI/ButtonUI.vue'
 import SectionsContainer from '@/views/Board/Section/SectionsContainer.vue'
 import { computed, defineComponent } from 'vue'
 
@@ -49,24 +58,28 @@ export default defineComponent({
 
 <style scoped>
 .title {
+  justify-self: center;
   text-align: center;
   font-weight: bold;
   margin: 0;
+  max-width: 800px;
 }
 
-.board {
+.board-header {
   display: grid;
+  align-content: center;
+  min-width: 980px;
 }
 
-.manage {
+.controllers {
   display: inline-flex;
   justify-self: center;
-  gap: 10px;
+  gap: 6px;
+  margin-top: 30px;
 }
 
-.manage button {
+.controllers button {
   display: inline;
-  margin-top: 15px;
   cursor: pointer;
 }
 </style>

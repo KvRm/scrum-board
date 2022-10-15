@@ -5,6 +5,7 @@
     :criticalLvl="task.criticalLvl"
     :completeDate="task.completeDate"
     :author="task.author"
+    :executor="task.executor"
   />
 </template>
 
