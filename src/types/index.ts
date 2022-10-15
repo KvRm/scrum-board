@@ -1,1 +1,1 @@
-export { TaskPreviewProps, TaskCriticalLvl } from './TaskPreview'
+export * from './ITask'

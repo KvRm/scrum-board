@@ -2,7 +2,7 @@
   <header class="header">
     <div class="container header-container">
       <nav class="nav">
-        <router-link class="link" to="/main">На главную</router-link>
+        <router-link class="link" to="/">На главную</router-link>
         <router-link class="link" to="/my-tasks">Мои задачи</router-link>
         <router-link class="link" to="/search">Найти</router-link>
       </nav>

@@ -1,7 +1,11 @@
 <template>
+  <!-- index === id, при подключении бд -->
   <TaskPreview
     v-for="(task, index) in taskList"
     :key="index"
+    :title="task.title"
+    :shortDescription="task.shortDescription"
+    :link="task.link"
     :criticalLvl="task.criticalLvl"
     :completeDate="task.completeDate"
     :author="task.author"
@@ -10,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { TaskPreviewProps, TaskCriticalLvl } from '@/types'
+import { ITaskPreview, TaskCriticalLvl } from '@/types'
 import { defineComponent, PropType } from 'vue'
 import TaskPreview from './TaskPreview.vue'
 
@@ -19,7 +23,7 @@ export default defineComponent({
     TaskPreview
   },
   props: {
-    taskList: Array as PropType<TaskPreviewProps[]>
+    taskList: Array as PropType<ITaskPreview[]>
   },
 
   setup() {

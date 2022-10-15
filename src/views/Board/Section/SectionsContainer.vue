@@ -51,7 +51,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import SectionComponent from '@/views/Board/Section/SectionComponent.vue'
-import { TaskCriticalLvl, TaskPreviewProps } from '@/types'
+import { TaskCriticalLvl, ITaskPreview } from '@/types'
 
 export default defineComponent({
   components: { SectionComponent },
@@ -60,46 +60,73 @@ export default defineComponent({
     function logText() {
       console.log('Нерешенные')
     }
-    const currentTaskList: TaskPreviewProps[] = [
+    const currentTaskList: ITaskPreview[] = [
       {
+        title: 'Название задачи',
+        shortDescription:
+          'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
         criticalLvl: TaskCriticalLvl.veryHigh,
         completeDate: '31.10.2022',
         author: 'Автор',
-        executor: 'Исполнитель'
+        executor: 'Исполнитель',
+        link: '2'
       },
       {
+        title: 'Название задачи',
+        shortDescription:
+          'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
+
         criticalLvl: TaskCriticalLvl.high,
         completeDate: '31.10.2022',
         author: 'Автор',
-        executor: 'Исполнитель'
+        executor: 'Исполнитель',
+        link: '2'
       },
       {
+        title: 'Название задачи',
+        shortDescription:
+          'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
+
         criticalLvl: TaskCriticalLvl.medium,
         completeDate: '31.10.2022',
         author: 'Автор',
-        executor: 'Исполнитель'
+        executor: 'Исполнитель',
+        link: '2'
       }
     ]
-    const currentTaskList2: TaskPreviewProps[] = [
+    const currentTaskList2: ITaskPreview[] = [
       {
+        title: 'Название задачи',
+        shortDescription:
+          'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
+
         criticalLvl: TaskCriticalLvl.low,
         completeDate: '31.10.2022',
         author: 'Автор',
-        executor: 'Исполнитель'
+        executor: 'Исполнитель',
+        link: '2'
       },
       {
+        title: 'Название задачи',
+        shortDescription:
+          'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
         criticalLvl: TaskCriticalLvl.veryHigh,
         completeDate: '31.10.2022',
         author: 'Автор',
-        executor: 'Исполнитель'
+        executor: 'Исполнитель',
+        link: '2'
       }
     ]
-    const currentTaskList3: TaskPreviewProps[] = [
+    const currentTaskList3: ITaskPreview[] = [
       {
+        title: 'Название задачи',
+        shortDescription:
+          'Описание тавоытиыф ыощаф аыощп аыотп ыщфовт фвыт ыфвщопт ыфощвтп ыщвофтп ыфощатп ыатп щфаыоп щфаыотп щфытп офаытпщ фаыоы',
         criticalLvl: TaskCriticalLvl.veryHigh,
         completeDate: '31.10.2022',
         author: 'Автор',
-        executor: 'Исполнитель'
+        executor: 'Исполнитель',
+        link: '2'
       }
     ]
     return {
@@ -116,9 +143,11 @@ export default defineComponent({
 .sections-container {
   display: grid;
   overflow-x: scroll;
-  gap: 25px;
+  gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   min-height: 100vh;
+  max-width: 1700px;
+  margin: 0 auto;
   padding: 0px 10px;
 }
 

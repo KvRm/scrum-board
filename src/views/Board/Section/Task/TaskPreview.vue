@@ -1,13 +1,11 @@
 <template>
   <div class="task">
-    <h5 class="title">Имя таски</h5>
+    <h5 class="title">{{ title }}</h5>
     <p class="description">
-      fnsdfndsjnj sn sa sa sa sa sa sa asj sngsfj dgndfsj gndfjg ndfsjg
-      ndfsjgndfsj ndfsjg ndfsj ngefj gndfsj gns fnsdfndsjnj sn sa sa sa sa sa sa
-      asj sngsfj dgndfsj gndfjg ndfsjg ndfsjgndfsj ndfsjg ndfsj ngefj gndfsj gns
+      {{ shortDescription }}
     </p>
-    <div class="task-state">
-      <div class="additional-info">
+    <div class="task-info">
+      <div class="task-state">
         <p class="complete-time">
           Крайний срок:
           <span>{{ completeDate }}</span>
@@ -34,7 +32,7 @@
           <span>{{ executor ? executor : 'Не назначен' }}</span>
         </p>
       </div>
-      <router-link class="task-link" to="task/:id">
+      <router-link class="task-link" :to="`task/${link}`">
         <span>Подробнее...</span>
       </router-link>
     </div>
@@ -47,6 +45,18 @@ import { defineComponent, PropType, ref } from 'vue'
 
 export default defineComponent({
   props: {
+    title: {
+      type: String,
+      required: true
+    },
+    shortDescription: {
+      type: String
+    },
+    link: {
+      type: String,
+      // поменять полсе добавления ссылок
+      required: true
+    },
     criticalLvl: {
       type: String as PropType<TaskCriticalLvl>,
       required: true
@@ -66,6 +76,7 @@ export default defineComponent({
   },
   setup() {
     const isTaskRelevant = ref<boolean>(true)
+    // макс длина описания 150 символов
 
     return { isTaskRelevant }
   }
@@ -94,7 +105,7 @@ export default defineComponent({
   margin-top: 34px;
   margin-bottom: 20px;
 }
-.task-state {
+.task-info {
   display: grid;
   grid-template-columns: 1fr auto;
 }
@@ -110,7 +121,7 @@ export default defineComponent({
   padding: 0;
   margin: 0;
 }
-.additional-info {
+.task-state {
   margin-top: 6px;
   line-height: 7px;
 }

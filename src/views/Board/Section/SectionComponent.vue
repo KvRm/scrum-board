@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { TaskCriticalLvl, TaskPreviewProps } from '@/types'
+import { TaskCriticalLvl, ITaskPreview } from '@/types'
 import { defineComponent, PropType } from 'vue'
 import TaskList from './Task/TaskList.vue'
 
@@ -23,7 +23,7 @@ export default defineComponent({
       required: true
     },
     currentTaskList: {
-      type: Array as PropType<TaskPreviewProps[]>
+      type: Array as PropType<ITaskPreview[]>
     }
   },
 

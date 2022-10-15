@@ -3,28 +3,32 @@
     <div class="board-header">
       <h2 class="title">{{ boardName }}</h2>
       <div class="controllers">
-        <ButtonUI :color="ButtonColor.blue" :size="ButtonSize.small">
-          Ссылка-приглашение
-        </ButtonUI>
-        <ButtonUI :color="ButtonColor.blue" :size="ButtonSize.small">
-          Участники
-        </ButtonUI>
         <ButtonUI
-          v-if="!isCreator"
+          v-if="isCreator"
           :color="ButtonColor.blue"
           :size="ButtonSize.small"
         >
-          Редактировать
+          <img class="icon" src="@/assets/icons/invite.svg" alt="Пригласить" />
+        </ButtonUI>
+        <ButtonUI :color="ButtonColor.blue" :size="ButtonSize.small">
+          <img class="icon" src="@/assets/icons/users.svg" alt="Пользователи" />
+        </ButtonUI>
+        <ButtonUI
+          v-if="isCreator"
+          :color="ButtonColor.blue"
+          :size="ButtonSize.small"
+        >
+          <img class="icon" src="@/assets/icons/edit.svg" alt="Редактировать" />
         </ButtonUI>
         <ButtonUI
           v-if="!isCreator"
           :color="ButtonColor.red"
           :size="ButtonSize.small"
         >
-          Покинуть доску
+          <img class="icon" src="@/assets/icons/leave.svg" alt="Покинуть" />
         </ButtonUI>
         <ButtonUI v-else :color="ButtonColor.red" :size="ButtonSize.small">
-          Удалить доску
+          <img class="icon" src="@/assets/icons/remove.svg" alt="Пригласить" />
         </ButtonUI>
       </div>
     </div>
@@ -43,10 +47,11 @@ export default defineComponent({
 
   setup() {
     const isCreator = computed(() => {
-      return false
+      return !false
     })
 
     return {
+      // валидация, макс длина 50 символов
       boardName: 'Тестовая доска',
       isCreator,
       ButtonColor,
@@ -81,5 +86,10 @@ export default defineComponent({
 .controllers button {
   display: inline;
   cursor: pointer;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
 }
 </style>

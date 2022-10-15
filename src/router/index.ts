@@ -3,12 +3,6 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: () => {
-      return { path: '/main' }
-    }
-  },
-  {
-    path: '/main',
     name: 'main',
     component: () => import('../views/Main/MainView.vue')
   },
