@@ -28,14 +28,16 @@ export default defineComponent({
 }
 
 .input {
-  padding: 5px 10px;
+  padding: 8px 10px;
   border: 2px solid var(--gray);
-  border-radius: 4px;
+  border-radius: 8px;
   min-width: 300px;
-  height: 35px;
+  height: 40px;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 5px lightgray;
 }
 .input:focus {
-  border: 2px solid var(--black);
+  border: 2px solid var(--gray);
 }
 
 label {

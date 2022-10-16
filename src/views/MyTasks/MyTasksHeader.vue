@@ -22,6 +22,7 @@ export default defineComponent({
 .my-task-header {
   display: grid;
   grid-template-columns: 3fr 3fr 2fr 2fr 2fr;
+  gap: 10px;
   align-items: center;
   justify-items: center;
   min-height: 40px;

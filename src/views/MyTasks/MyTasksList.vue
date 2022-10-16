@@ -3,8 +3,8 @@
     <li class="my-task-item" v-for="(task, index) in myTasksList" :key="index">
       <MyTask
         :title="task.title"
-        :boardName="task.boardName"
-        :boardLink="task.boardLink"
+        :boardName="task.board.boardTitle"
+        :boardLink="task.board.boardLink"
         :criticalLvl="task.criticalLvl"
         :completeDate="task.completeDate"
         :author="task.author"
@@ -17,7 +17,7 @@
 <script lang="ts">
 import { IMyTask } from '@/types'
 import { defineComponent, PropType } from 'vue'
-import MyTask from './MyTask.vue'
+import MyTask from './MyTaskItem.vue'
 
 export default defineComponent({
   components: {

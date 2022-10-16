@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
@@ -21,10 +21,7 @@ export default defineComponent({
     }
   },
   setup() {
-    const isTaskRelevant = ref<boolean>(true)
-    // макс длина описания 150 символов
-
-    return { isTaskRelevant }
+    return {}
   }
 })
 </script>

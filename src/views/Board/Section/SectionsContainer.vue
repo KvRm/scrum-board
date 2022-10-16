@@ -12,7 +12,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import SectionComponent from '@/views/Board/Section/SectionComponent.vue'
-import { ITaskPreview } from '@/types'
+import { ITaskPreview, TaskCriticalLvl } from '@/types'
 
 export default defineComponent({
   components: { SectionComponent },
@@ -24,34 +24,48 @@ export default defineComponent({
     const currentTaskList: ITaskPreview[] = [
       {
         title: 'Название задачи',
+        criticalLvl: TaskCriticalLvl.high,
+        tags: ['Спринт 1'],
         link: '2'
       },
       {
         title: 'Название задачи',
+        criticalLvl: TaskCriticalLvl.high,
+        tags: ['Спринт 1'],
         link: '2'
       },
       {
         title: 'Название задачи',
+        criticalLvl: TaskCriticalLvl.high,
+        tags: ['Спринт 1'],
         link: '2'
       },
       {
         title: 'Название задачи',
+        criticalLvl: TaskCriticalLvl.high,
+        tags: ['Спринт 1'],
         link: '2'
       }
     ]
     const currentTaskList2: ITaskPreview[] = [
       {
         title: 'Название задачи',
+        criticalLvl: TaskCriticalLvl.high,
+        tags: ['Спринт 1'],
         link: '2'
       },
       {
         title: 'Название задачи',
+        criticalLvl: TaskCriticalLvl.high,
+        tags: ['Спринт 1'],
         link: '2'
       }
     ]
     const currentTaskList3: ITaskPreview[] = [
       {
         title: 'Название задачи',
+        criticalLvl: TaskCriticalLvl.high,
+        tags: ['Спринт 1'],
         link: '2'
       }
     ]
@@ -70,9 +84,9 @@ export default defineComponent({
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: flex-start;
-  column-gap: 20px;
-  min-height: calc(100vh - 60px);
-  margin-top: 20px;
+  column-gap: 15px;
+  min-height: calc(100vh - 65px);
+  margin-top: 10px;
   padding: 0px 16px;
   overflow-x: scroll;
 }

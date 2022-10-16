@@ -27,7 +27,7 @@ export default defineComponent({
   border-radius: 10px;
   border: 1px solid lightgray;
   box-shadow: 0 0 10px rgb(221, 221, 221);
-  background: #fff;
+  background: var(--light-gray);
   font-size: 16px;
 }
 .board-preview:hover {

@@ -1,17 +1,21 @@
+import { IBoard } from './IBoard'
+
 export interface IMyTask extends ITaskPreview {
-  boardName: string
-  boardLink: string
-  criticalLvl: TaskCriticalLvl
+  board: IBoard
   completeDate: string
   author: string
 }
 
 export interface ITaskPreview {
+  // сделать обязательным после добавления бд
+  id?: string
   title: string
+  criticalLvl: TaskCriticalLvl
+  tags: string[]
   link: string
 }
 
-export interface ITask extends ITaskPreview {
+export interface ITask extends IMyTask {
   description: string
   executor: string
   comments: IComment[]

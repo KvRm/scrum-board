@@ -1,38 +1,44 @@
 <template>
-  <h4 class="board-group-title">Мои доски</h4>
+  <h4 class="board-group-title">{{ listTitle }}</h4>
   <ul class="board-list">
-    <li class="board-item">
+    <li v-if="isMyBoardsList" class="board-item">
       <CreateBoard />
     </li>
-    <li class="board-item" v-for="(item, index) in items" :key="index">
-      <BoardPreview />
-    </li>
-  </ul>
-  <h4 class="board-group-title">Все доски</h4>
-  <ul class="board-list">
-    <li class="board-item" v-for="(item, index) in items" :key="index">
+    <li class="board-item" v-for="(item, index) in boardsList" :key="index">
       <BoardPreview />
     </li>
   </ul>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { IBoard } from '@/types/IBoard'
+import { defineComponent, PropType } from 'vue'
 import BoardPreview from './BoardPreview.vue'
 import CreateBoard from './CreateBoard.vue'
 
 export default defineComponent({
+  props: {
+    listTitle: {
+      type: String,
+      required: true
+    },
+    isMyBoardsList: {
+      type: Boolean,
+      required: true
+    },
+    boardsList: {
+      type: Array as PropType<IBoard[]>,
+      required: true
+    }
+  },
+
   components: {
     BoardPreview,
     CreateBoard
   },
 
   setup() {
-    return {
-      items: [
-        1, 2, 3, 3, 3, 3, 3, 3, 33, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
-      ]
-    }
+    return {}
   }
 })
 </script>
@@ -41,17 +47,17 @@ export default defineComponent({
 .board-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 25px;
-  margin-bottom: 40px;
+  gap: 15px;
+  margin-bottom: 16px;
 }
 
-@media (max-width: 2000px) {
+@media (max-width: 1940px) {
   .board-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
-@media (max-width: 1700px) {
+@media (max-width: 1650px) {
   .board-list {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -63,11 +69,9 @@ export default defineComponent({
   }
 }
 
-@media (max-width: 1060px) {
+@media (max-width: 1070px) {
   .board-list {
     grid-template-columns: 1fr;
-    margin-left: 100px;
-    margin-right: 100px;
   }
 }
 .board-item {
@@ -77,8 +81,8 @@ export default defineComponent({
 .board-group-title {
   margin: 0;
   padding: 0;
-  margin-bottom: 25px;
-  font-size: 30px;
+  font-size: 28px;
+  margin-bottom: 22px;
   font-weight: bold;
   text-align: center;
 }

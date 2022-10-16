@@ -10,7 +10,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import MyTasksHeader from './MyTasksHeader.vue'
-import MyTasksList from './MyTask/MyTasksList.vue'
+import MyTasksList from './MyTasksList.vue'
 import { IMyTask, TaskCriticalLvl } from '@/types'
 
 export default defineComponent({
@@ -23,8 +23,11 @@ export default defineComponent({
     const myTasksList = ref<IMyTask[]>([
       {
         title: 'Моя задача',
-        boardName: 'Тестовая доска',
-        boardLink: 'rustam/test-board',
+        board: {
+          boardTitle: 'Тестовая доска',
+          boardLink: '/board'
+        },
+        tags: ['Спринт 1'],
         criticalLvl: TaskCriticalLvl.veryHigh,
         completeDate: '31.10.2022',
         author: 'Автор',
@@ -32,8 +35,11 @@ export default defineComponent({
       },
       {
         title: 'Моя задача',
-        boardName: 'Тестовая доска',
-        boardLink: 'rustam/test-board',
+        board: {
+          boardTitle: 'Тестовая доска',
+          boardLink: '/board'
+        },
+        tags: ['Спринт 1'],
         criticalLvl: TaskCriticalLvl.high,
         completeDate: '31.10.2022',
         author: 'Автор',
@@ -41,8 +47,11 @@ export default defineComponent({
       },
       {
         title: 'Моя задача',
-        boardName: 'Тестовая доска',
-        boardLink: 'rustam/test-board',
+        board: {
+          boardTitle: 'Тестовая доска',
+          boardLink: '/board'
+        },
+        tags: ['Спринт 1'],
         criticalLvl: TaskCriticalLvl.medium,
         completeDate: '31.10.2022',
         author: 'Автор',

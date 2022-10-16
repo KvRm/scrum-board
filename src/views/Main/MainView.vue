@@ -1,44 +1,102 @@
 <template>
-  <div class="container">
+  <div class="main-wrapper container">
     <aside class="aside-container">
       <HistoryComponent />
     </aside>
     <main class="main-container">
-      <BoardList />
+      <div class="board-list">
+        <BoardsList
+          :listTitle="'Мои доски'"
+          :boardsList="boardsList"
+          :isMyBoardsList="true"
+        />
+      </div>
+      <div class="board-list">
+        <BoardsList
+          :listTitle="'Все доски'"
+          :boardsList="boardsList"
+          :isMyBoardsList="false"
+        />
+      </div>
     </main>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import HistoryComponent from './HistoryComponent.vue'
-import BoardList from './Boards/BoardsList.vue'
+import BoardsList from './Boards/BoardsList.vue'
+import { IBoard } from '@/types'
 
 export default defineComponent({
   components: {
     HistoryComponent,
-    BoardList
+    BoardsList
   },
 
   setup() {
-    return {}
+    const boardsList = ref<IBoard[]>([
+      {
+        boardTitle: 'Тестовая доска',
+        boardLink: '/board'
+      },
+      {
+        boardTitle: 'Тестовая доска',
+        boardLink: '/board'
+      },
+      {
+        boardTitle: 'Тестовая доска',
+        boardLink: '/board'
+      },
+      {
+        boardTitle: 'Тестовая доска',
+        boardLink: '/board'
+      },
+      {
+        boardTitle: 'Тестовая доска',
+        boardLink: '/board'
+      },
+      {
+        boardTitle: 'Тестовая доска',
+        boardLink: '/board'
+      },
+      {
+        boardTitle: 'Тестовая доска',
+        boardLink: '/board'
+      }
+    ])
+
+    return {
+      boardsList
+    }
   }
 })
 </script>
 
 <style scoped>
-.container {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 40px;
+@media (max-width: 2000px) {
+  .main-wrapper {
+    display: grid;
+    gap: 15px;
+  }
+
+  .aside-container {
+    display: inline-grid;
+    position: fixed;
+  }
+
+  .main-container {
+    display: inline-grid;
+    margin-left: 415px;
+  }
 }
 
-.aside-container {
-  display: inline-grid;
-  height: 100%;
-}
-
-.main-container {
-  display: inline-grid;
+@media (max-width: 780px) {
+  .aside-container {
+    position: relative;
+  }
+  .main-container {
+    margin-left: 0;
+  }
 }
 </style>

@@ -3,11 +3,11 @@
     <h4 class="title">История</h4>
     <ul class="board-list">
       <li
-        class="board-link"
+        class="board-item"
         v-for="boardLink in boardLinks"
         :key="boardLink.link"
       >
-        <router-link :to="boardLink.link">
+        <router-link class="link" :to="boardLink.link">
           {{ boardLink.name }}
         </router-link>
       </li>
@@ -66,11 +66,11 @@ export default defineComponent({
   align-content: flex-start;
   box-sizing: border-box;
   width: 400px;
-  height: 626px;
+  height: 600px;
   padding: 10px;
   margin: 0;
   color: var(--black);
-  background: #fff;
+  background: var(--light-gray);
   border-radius: 10px;
   border: 1px solid lightgray;
   box-shadow: 0 0 15px rgb(221, 221, 221);
@@ -87,13 +87,15 @@ export default defineComponent({
   padding-left: 30px;
   overflow: hidden;
   max-width: 350px;
+  list-style: none;
 }
 
-.board-link,
-a {
-  color: var(--black);
-  text-decoration: underline;
-  list-style: none;
+.board-item {
   margin-bottom: 6px;
+}
+
+.link:hover {
+  color: rgb(30, 30, 255);
+  text-decoration: underline;
 }
 </style>

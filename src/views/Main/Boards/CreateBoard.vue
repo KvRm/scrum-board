@@ -18,10 +18,12 @@ export default defineComponent({
 .create-board {
   display: grid;
   justify-content: center;
+  min-width: 280px;
+  height: 170px;
   border-radius: 10px;
   border: 1px solid lightgray;
   box-shadow: 0 0 10px rgb(221, 221, 221);
-  background: #fff;
+  background: var(--light-gray);
 }
 .plus-icon {
   align-self: center;

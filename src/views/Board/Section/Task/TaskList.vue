@@ -1,16 +1,19 @@
 <template>
   <!-- index === id, при подключении бд -->
-  <TaskPreview
-    v-for="(task, index) in taskList"
-    :key="index"
-    :title="task.title"
-    :shortDescription="task.shortDescription"
-    :link="task.link"
-    :criticalLvl="task.criticalLvl"
-    :completeDate="task.completeDate"
-    :author="task.author"
-    :executor="task.executor"
-  />
+  <div class="task-list">
+    <TaskPreview
+      v-for="(task, index) in taskList"
+      :key="index"
+      :title="task.title"
+      :shortDescription="task.shortDescription"
+      :link="task.link"
+      :criticalLvl="task.criticalLvl"
+      :completeDate="task.completeDate"
+      :author="task.author"
+      :executor="task.executor"
+    />
+    <span class="add-button">+ Добавить</span>
+  </div>
 </template>
 
 <script lang="ts">
@@ -34,4 +37,19 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.task-list {
+  display: grid;
+  row-gap: 10px;
+}
+
+.add-button {
+  justify-self: center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  text-decoration: underline;
+}
+</style>

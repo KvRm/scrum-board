@@ -21,11 +21,7 @@
       >{{ criticalLvl }}
     </span>
     <span class="completeDate">{{ completeDate }}</span>
-    <span class="author">
-      <router-link class="link" to="someUserLink">
-        {{ author }}
-      </router-link>
-    </span>
+    <span class="author">{{ author }}</span>
   </div>
 </template>
 
@@ -75,6 +71,7 @@ export default defineComponent({
 .my-task {
   display: grid;
   grid-template-columns: 3fr 3fr 2fr 2fr 2fr;
+  gap: 10px;
   align-items: center;
   justify-items: center;
   height: 40px;
