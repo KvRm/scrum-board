@@ -4,6 +4,7 @@ export interface IMyTask extends ITaskPreview {
   board: IBoard
   completeDate: string
   author: string
+  statusSectionTitle: string
 }
 
 export interface ITaskPreview {

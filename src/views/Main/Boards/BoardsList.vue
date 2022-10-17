@@ -2,7 +2,9 @@
   <h4 class="board-group-title">{{ listTitle }}</h4>
   <ul class="board-list">
     <li v-if="isMyBoardsList" class="board-item">
-      <CreateBoard />
+      <div class="create-board">
+        <img src="@/assets/icons/plus.svg" alt="" srcset="" />
+      </div>
     </li>
     <li class="board-item" v-for="(item, index) in boardsList" :key="index">
       <BoardPreview />
@@ -14,7 +16,6 @@
 import { IBoard } from '@/types/IBoard'
 import { defineComponent, PropType } from 'vue'
 import BoardPreview from './BoardPreview.vue'
-import CreateBoard from './CreateBoard.vue'
 
 export default defineComponent({
   props: {
@@ -33,8 +34,7 @@ export default defineComponent({
   },
 
   components: {
-    BoardPreview,
-    CreateBoard
+    BoardPreview
   },
 
   setup() {
@@ -85,5 +85,28 @@ export default defineComponent({
   margin-bottom: 22px;
   font-weight: bold;
   text-align: center;
+}
+
+.create-board {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-width: 280px;
+  height: 170px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 10px rgb(221, 221, 221);
+  background: #fff;
+}
+.create-board:hover {
+  background: var(--light-gray);
+  cursor: pointer;
+  color: lightgray;
+}
+
+.create-board img {
+  width: 130px;
+  height: 130px;
+  transition: all 0.2s ease;
 }
 </style>

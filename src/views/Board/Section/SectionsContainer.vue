@@ -1,79 +1,97 @@
 <template>
-  <div class="sections-container">
+  <div
+    class="sections-container"
+    :style="`grid-template-columns: repeat(${sectionListLength + 1}, auto)`"
+  >
     <SectionComponent
-      :title="'Нерешенные'"
-      :currentTaskList="currentTaskList"
+      v-for="(section, index) in sectionList"
+      :key="index"
+      :title="section.title"
+      :currentTaskList="section.tasks"
     />
-    <SectionComponent :title="'В работе'" :currentTaskList="currentTaskList2" />
-    <SectionComponent :title="'Решенные'" :currentTaskList="currentTaskList3" />
+    <div v-if="isEditing" class="add-section">
+      <img src="@/assets/icons/plus.svg" alt="Добавить" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
 import SectionComponent from '@/views/Board/Section/SectionComponent.vue'
-import { ITaskPreview, TaskCriticalLvl } from '@/types'
+import { TaskCriticalLvl, IStatusSection } from '@/types'
 
 export default defineComponent({
   components: { SectionComponent },
 
   setup() {
-    function logText() {
-      console.log('Нерешенные')
-    }
-    const currentTaskList: ITaskPreview[] = [
+    const isEditing = computed(() => !false)
+
+    const sectionList: IStatusSection[] = [
       {
-        title: 'Название задачи',
-        criticalLvl: TaskCriticalLvl.high,
-        tags: ['Спринт 1'],
-        link: '2'
+        title: 'Нерешенные',
+        tasks: [
+          {
+            title: 'Название задачи',
+            criticalLvl: TaskCriticalLvl.high,
+            tags: ['Спринт 1'],
+            link: '2'
+          },
+          {
+            title: 'Название задачи',
+            criticalLvl: TaskCriticalLvl.high,
+            tags: ['Спринт 1'],
+            link: '2'
+          },
+          {
+            title: 'Название задачи',
+            criticalLvl: TaskCriticalLvl.high,
+            tags: ['Спринт 1'],
+            link: '2'
+          },
+          {
+            title: 'Название задачи',
+            criticalLvl: TaskCriticalLvl.high,
+            tags: ['Спринт 1'],
+            link: '2'
+          }
+        ]
       },
       {
-        title: 'Название задачи',
-        criticalLvl: TaskCriticalLvl.high,
-        tags: ['Спринт 1'],
-        link: '2'
+        title: 'В работе',
+        tasks: [
+          {
+            title: 'Название задачи',
+            criticalLvl: TaskCriticalLvl.high,
+            tags: ['Спринт 1'],
+            link: '2'
+          },
+          {
+            title: 'Название задачи',
+            criticalLvl: TaskCriticalLvl.high,
+            tags: ['Спринт 1'],
+            link: '2'
+          }
+        ]
       },
       {
-        title: 'Название задачи',
-        criticalLvl: TaskCriticalLvl.high,
-        tags: ['Спринт 1'],
-        link: '2'
-      },
-      {
-        title: 'Название задачи',
-        criticalLvl: TaskCriticalLvl.high,
-        tags: ['Спринт 1'],
-        link: '2'
+        title: 'Решенные',
+        tasks: [
+          {
+            title: 'Название задачи',
+            criticalLvl: TaskCriticalLvl.high,
+            tags: ['Спринт 1'],
+            link: '2'
+          }
+        ]
       }
     ]
-    const currentTaskList2: ITaskPreview[] = [
-      {
-        title: 'Название задачи',
-        criticalLvl: TaskCriticalLvl.high,
-        tags: ['Спринт 1'],
-        link: '2'
-      },
-      {
-        title: 'Название задачи',
-        criticalLvl: TaskCriticalLvl.high,
-        tags: ['Спринт 1'],
-        link: '2'
-      }
-    ]
-    const currentTaskList3: ITaskPreview[] = [
-      {
-        title: 'Название задачи',
-        criticalLvl: TaskCriticalLvl.high,
-        tags: ['Спринт 1'],
-        link: '2'
-      }
-    ]
+
+    const sectionListLength = computed(() => sectionList.length)
+
     return {
-      logText,
-      currentTaskList,
-      currentTaskList2,
-      currentTaskList3
+      isEditing,
+      sectionList,
+      sectionListLength
     }
   }
 })
@@ -82,12 +100,34 @@ export default defineComponent({
 <style scoped>
 .sections-container {
   display: grid;
-  grid-template-columns: repeat(3, auto);
   justify-content: flex-start;
   column-gap: 15px;
   min-height: calc(100vh - 65px);
   margin-top: 10px;
   padding: 0px 16px;
   overflow-x: scroll;
+}
+
+.add-section {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 70px;
+  width: 70px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  background: var(--light-gray);
+  border: 1px solid lightgray;
+  box-shadow: 0 0 5px lightgray;
+}
+
+.add-section img {
+  height: 70px;
+  width: 70px;
+  transition: all 0.2s ease;
+}
+
+.add-section:hover {
+  cursor: pointer;
 }
 </style>

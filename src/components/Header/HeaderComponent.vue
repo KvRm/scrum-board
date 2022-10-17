@@ -36,8 +36,8 @@ export default defineComponent({
 <style scoped>
 .header {
   height: 60px;
-  box-shadow: 0 0 10px lightgray;
   width: 100%;
+  box-shadow: 0 0 10px lightgray;
 }
 
 .header-container {

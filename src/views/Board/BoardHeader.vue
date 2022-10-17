@@ -2,14 +2,20 @@
   <div class="board-header">
     <div class="settings">
       <h2 class="title">{{ boardName }}</h2>
-      <div class="controllers">
-        <InviteIcon />
-        <img class="icon" src="@/assets/icons/invite.svg" alt="Пригласить" />
-        <img class="icon" src="@/assets/icons/users.svg" alt="Пользователи" />
-        <img class="icon" src="@/assets/icons/edit.svg" alt="Редактировать" />
-        <img class="icon" src="@/assets/icons/leave.svg" alt="Покинуть" />
-        <img class="icon" src="@/assets/icons/remove.svg" alt="Пригласить" />
-      </div>
+      <ul class="controllers">
+        <li class="controller" data-tooltip="Пользователи">
+          <img class="icon" src="@/assets/icons/user.svg" alt="Пользователи" />
+        </li>
+        <li class="controller" data-tooltip="Изменить" v-if="isCreator">
+          <img class="icon" src="@/assets/icons/edit.svg" alt="Изменить" />
+        </li>
+        <li class="controller" data-tooltip="Покинуть" v-if="!isCreator">
+          <img class="icon" src="@/assets/icons/leave.svg" alt="Покинуть" />
+        </li>
+        <li class="controller" data-tooltip="Удалить" v-if="isCreator">
+          <img class="icon" src="@/assets/icons/remove.svg" alt="Удалить" />
+        </li>
+      </ul>
     </div>
     <div class="search-filter">
       <InputUI :title="'Поиск'" class="search" />
@@ -26,13 +32,11 @@ import { computed, defineComponent } from 'vue'
 import InputUI from '@/components/UI/InputUI.vue'
 import SelectUI from '@/components/UI/SelectUI.vue'
 import { TaskCriticalLvl } from '@/types'
-import InviteIcon from '@/components/static/InviteIcon.vue'
 
 export default defineComponent({
   components: {
     InputUI,
-    SelectUI,
-    InviteIcon
+    SelectUI
   },
 
   props: {
@@ -85,6 +89,13 @@ export default defineComponent({
 .title {
   margin: 0;
   padding: 10px 0;
+  padding-right: 10px;
+}
+
+.search-filter {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px;
 }
 
 .controllers {
@@ -93,10 +104,35 @@ export default defineComponent({
   justify-self: flex-end;
 }
 
-.search-filter {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 5px;
+.controller {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.controller::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  width: max-content;
+  bottom: 115%;
+  right: 50%;
+  left: 50%;
+  padding: 4px 8px;
+  color: var(--light-gray);
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-shadow: 0 0 5px lightgray;
+  background-color: var(--black);
+  opacity: 0;
+  font-size: 0.8rem;
+  visibility: hidden;
+  transform: translate(-50%, 18px) scale(0.8);
+  transition: visibility, opacity, transform 200ms;
+}
+
+.controller:hover::after {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 .icon {

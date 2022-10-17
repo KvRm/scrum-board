@@ -31,7 +31,8 @@ export default defineComponent({
         criticalLvl: TaskCriticalLvl.veryHigh,
         completeDate: '31.10.2022',
         author: 'Автор',
-        link: '2'
+        link: '2',
+        statusSectionTitle: 'Нерешенные'
       },
       {
         title: 'Моя задача',
@@ -43,7 +44,8 @@ export default defineComponent({
         criticalLvl: TaskCriticalLvl.high,
         completeDate: '31.10.2022',
         author: 'Автор',
-        link: '2'
+        link: '2',
+        statusSectionTitle: 'Нерешенные'
       },
       {
         title: 'Моя задача',
@@ -55,7 +57,8 @@ export default defineComponent({
         criticalLvl: TaskCriticalLvl.medium,
         completeDate: '31.10.2022',
         author: 'Автор',
-        link: '2'
+        link: '2',
+        statusSectionTitle: 'Нерешенные'
       }
     ])
 

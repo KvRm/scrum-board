@@ -70,7 +70,7 @@ export default defineComponent({
   padding: 10px;
   margin: 0;
   color: var(--black);
-  background: var(--light-gray);
+  background: #fff;
   border-radius: 10px;
   border: 1px solid lightgray;
   box-shadow: 0 0 15px rgb(221, 221, 221);

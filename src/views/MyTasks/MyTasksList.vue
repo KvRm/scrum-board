@@ -9,6 +9,7 @@
         :completeDate="task.completeDate"
         :author="task.author"
         :link="task.link"
+        :statusSectionTitle="task.statusSectionTitle"
       />
     </li>
   </ul>

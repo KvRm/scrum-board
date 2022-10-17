@@ -10,6 +10,7 @@
         {{ boardName }}
       </router-link>
     </span>
+    <span>{{ statusSectionTitle }}</span>
     <span
       class="criticalLvl"
       :class="{
@@ -58,6 +59,10 @@ export default defineComponent({
     link: {
       type: String,
       required: true
+    },
+    statusSectionTitle: {
+      type: String,
+      required: true
     }
   },
 
@@ -70,7 +75,7 @@ export default defineComponent({
 <style scoped>
 .my-task {
   display: grid;
-  grid-template-columns: 3fr 3fr 2fr 2fr 2fr;
+  grid-template-columns: 3fr 3fr 2fr 2fr 2fr 2fr;
   gap: 10px;
   align-items: center;
   justify-items: center;

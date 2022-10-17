@@ -74,29 +74,34 @@ export default defineComponent({
 </script>
 
 <style scoped>
-@media (max-width: 2000px) {
-  .main-wrapper {
-    display: grid;
-    gap: 15px;
-  }
+.main-wrapper {
+  display: grid;
+  gap: 15px;
+}
 
-  .aside-container {
-    display: inline-grid;
-    position: fixed;
-  }
+.aside-container {
+  display: inline-grid;
+  position: fixed;
+}
 
-  .main-container {
-    display: inline-grid;
-    margin-left: 415px;
-  }
+.main-container {
+  display: inline-grid;
+  margin-left: 415px;
 }
 
 @media (max-width: 780px) {
-  .aside-container {
-    position: relative;
+  .main-wrapper {
+    display: block;
   }
+
+  .aside-container {
+    display: inherit;
+    position: inherit;
+  }
+
   .main-container {
-    margin-left: 0;
+    display: inherit;
+    margin-left: inherit;
   }
 }
 </style>
