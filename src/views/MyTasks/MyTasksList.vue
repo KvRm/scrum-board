@@ -37,7 +37,15 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.my-task-item:nth-child(2n + 1) {
+.my-task-item {
+  border-bottom: 1px solid lightgray;
+}
+
+.my-task-item:hover {
   background: var(--light-gray);
+}
+
+.my-task-item:nth-last-child(1) {
+  border-bottom: none;
 }
 </style>

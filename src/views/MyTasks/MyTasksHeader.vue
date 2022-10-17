@@ -26,7 +26,7 @@ export default defineComponent({
   align-items: center;
   justify-items: center;
   min-height: 40px;
-  border-bottom: 1px solid var(--gray);
-  font-size: 18px;
+  border-bottom: 1px solid lightgray;
+  font-size: 16px;
 }
 </style>
