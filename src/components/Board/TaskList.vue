@@ -5,12 +5,9 @@
       v-for="(task, index) in taskList"
       :key="index"
       :title="task.title"
-      :shortDescription="task.shortDescription"
+      :board="task.board"
       :link="task.link"
       :criticalLvl="task.criticalLvl"
-      :completeDate="task.completeDate"
-      :author="task.author"
-      :executor="task.executor"
     />
     <span class="add-button">+ Добавить</span>
   </div>

@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import SectionsContainer from '@/views/Board/Section/SectionsContainer.vue'
-import BoardHeader from './Board/BoardHeader.vue'
+import SectionsContainer from '@/components/Board/SectionsContainer.vue'
+import BoardHeader from '@/components/Board/BoardHeader.vue'
 
 export default defineComponent({
   name: 'HomeView',

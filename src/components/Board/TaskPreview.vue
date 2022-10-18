@@ -1,7 +1,9 @@
 <template>
   <div class="task">
     <p class="title">
-      <router-link class="link" :to="link">{{ title }}</router-link>
+      <router-link class="link" :to="`${board}/${link}`">
+        {{ title }}
+      </router-link>
     </p>
   </div>
 </template>
@@ -16,6 +18,10 @@ export default defineComponent({
       required: true
     },
     link: {
+      type: String,
+      required: true
+    },
+    board: {
       type: String,
       required: true
     }

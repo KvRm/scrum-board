@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
-import SectionComponent from '@/views/Board/Section/SectionComponent.vue'
+import SectionComponent from '@/components/Board/SectionComponent.vue'
 import { TaskCriticalLvl, IStatusSection } from '@/types'
 
 export default defineComponent({

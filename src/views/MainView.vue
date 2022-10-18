@@ -24,8 +24,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import HistoryComponent from './Main/HistoryComponent.vue'
-import BoardsList from './Main/Boards/BoardsList.vue'
+import HistoryComponent from '@/components/Main/HistoryComponent.vue'
+import BoardsList from '@/components/Main/BoardsList.vue'
 import { IBoard } from '@/types'
 
 export default defineComponent({

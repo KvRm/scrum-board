@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <HeaderComponent class="header-component"></HeaderComponent>
+    <HeaderComponent class="header-component" />
     <div class="view">
       <router-view />
     </div>
@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HeaderComponent from './components/Header/HeaderComponent.vue'
+import HeaderComponent from './layout/Header/HeaderComponent.vue'
 
 export default defineComponent({
   components: { HeaderComponent }
