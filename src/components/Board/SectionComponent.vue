@@ -8,7 +8,7 @@
 <script lang="ts">
 import { TaskCriticalLvl, ITaskPreview } from '@/types'
 import { defineComponent, PropType } from 'vue'
-import TaskList from './Task/TaskList.vue'
+import TaskList from './TaskList.vue'
 
 export default defineComponent({
   components: { TaskList },

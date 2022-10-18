@@ -9,8 +9,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import MyTasksHeader from './MyTasksHeader.vue'
-import MyTasksList from './MyTasksList.vue'
+import MyTasksHeader from './MyTasks/MyTasksHeader.vue'
+import MyTasksList from './MyTasks/MyTasksList.vue'
 import { IMyTask, TaskCriticalLvl } from '@/types'
 
 export default defineComponent({

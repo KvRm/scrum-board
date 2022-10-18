@@ -1,36 +1,33 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { boardRoutes } from './modules/board.routes'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'main',
-    component: () => import('../views/Main/MainView.vue')
-  },
-  {
-    path: '/board',
-    name: 'board',
-    component: () => import('../views/Board/BoardView.vue')
+    component: () => import('../views/MainView.vue')
   },
   {
     path: '/my-tasks',
     name: 'my-tasks',
-    component: () => import('../views/MyTasks/MyTasksView.vue')
+    component: () => import('../views/MyTasksView.vue')
   },
   {
     path: '/search',
     name: 'search',
-    component: () => import('../views/Search/SearchView.vue')
+    component: () => import('../views/SearchView.vue')
   },
   {
     path: '/auth',
     name: 'auth',
-    component: () => import('../views/Auth/AuthView.vue')
+    component: () => import('../views/AuthView.vue')
   },
   {
     path: '/register',
     name: 'register',
-    component: () => import('../views/Register/RegisterView.vue')
-  }
+    component: () => import('../views/RegisterView.vue')
+  },
+  ...boardRoutes
 ]
 
 const router = createRouter({

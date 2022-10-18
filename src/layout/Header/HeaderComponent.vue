@@ -13,8 +13,8 @@
 
 <script lang="ts">
 import { Component, computed, defineComponent, ref } from 'vue'
-import AuthLinks from './UserAuthStatus/AuthLinks.vue'
-import UserProfile from './UserAuthStatus/UserProfile.vue'
+import AuthLinks from './AuthLinks.vue'
+import UserProfile from './UserProfile.vue'
 
 export default defineComponent({
   setup() {
