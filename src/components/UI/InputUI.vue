@@ -23,7 +23,7 @@ export default defineComponent({
 
 <style scoped>
 .input-container {
-  display: inline-grid;
+  display: grid;
   margin-bottom: 10px;
 }
 
@@ -31,7 +31,7 @@ export default defineComponent({
   padding: 8px 10px;
   border: 2px solid var(--gray);
   border-radius: 8px;
-  min-width: 300px;
+  width: 100%;
   height: 40px;
   border: 1px solid lightgray;
   box-shadow: 0 0 5px lightgray;

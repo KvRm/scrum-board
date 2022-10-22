@@ -25,7 +25,7 @@ export default defineComponent({
     return {
       isEditing,
       // sectionList,
-      // sectionListLength
+      sectionListLength: 1
     }
   }
 })

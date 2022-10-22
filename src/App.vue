@@ -7,15 +7,17 @@ import { Component, computed, defineComponent } from 'vue'
 import { useRoute } from 'vue-router'
 import MainLayout from '@/layout/MainLayout.vue'
 import Error404Layout from '@/layout/Error404Layout.vue'
+import LoginView from '@/layout/LoginView.vue'
 
 export default defineComponent({
-  components: { MainLayout, Error404Layout },
+  components: { MainLayout, Error404Layout, LoginView },
 
   setup() {
     const route = useRoute()
 
     const layout = computed<Component>(() => {
       if (route.path === '/error-404') return Error404Layout
+      if (route.path === '/login') return LoginView
 
       return MainLayout
     })

@@ -5,7 +5,7 @@
         Войти
       </ButtonUI>
     </router-link>
-    <router-link to="/login">
+    <router-link to="/login?type=register">
       <ButtonUI :color="ButtonColor.green" :size="ButtonSize.medium">
         Регистрация
       </ButtonUI>

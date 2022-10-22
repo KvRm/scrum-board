@@ -24,7 +24,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('../views/LoginView.vue')
+    component: () => import('../layout/LoginView.vue')
   },
   {
     path: '/error-404',
