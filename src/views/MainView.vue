@@ -38,31 +38,7 @@ export default defineComponent({
     const boardsList = ref<IBoard[]>([
       {
         boardTitle: 'Тестовая доска',
-        boardLink: '/board'
-      },
-      {
-        boardTitle: 'Тестовая доска',
-        boardLink: '/board'
-      },
-      {
-        boardTitle: 'Тестовая доска',
-        boardLink: '/board'
-      },
-      {
-        boardTitle: 'Тестовая доска',
-        boardLink: '/board'
-      },
-      {
-        boardTitle: 'Тестовая доска',
-        boardLink: '/board'
-      },
-      {
-        boardTitle: 'Тестовая доска',
-        boardLink: '/board'
-      },
-      {
-        boardTitle: 'Тестовая доска',
-        boardLink: '/board'
+        boardLink: '/board/2'
       }
     ])
 

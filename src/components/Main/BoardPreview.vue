@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/board">
+  <router-link to="/board/2">
     <div class="board-preview">
       <p class="title">Название доски</p>
     </div>

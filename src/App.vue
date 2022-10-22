@@ -1,18 +1,29 @@
 <template>
-  <div class="layout">
-    <HeaderComponent class="header-component" />
-    <div class="view">
-      <router-view />
-    </div>
-  </div>
+  <component :is="layout" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HeaderComponent from './layout/Header/HeaderComponent.vue'
+import { Component, computed, defineComponent } from 'vue'
+import { useRoute } from 'vue-router'
+import MainLayout from '@/layout/MainLayout.vue'
+import Error404Layout from '@/layout/Error404Layout.vue'
 
 export default defineComponent({
-  components: { HeaderComponent }
+  components: { MainLayout, Error404Layout },
+
+  setup() {
+    const route = useRoute()
+
+    const layout = computed<Component>(() => {
+      if (route.path === '/error-404') return Error404Layout
+
+      return MainLayout
+    })
+
+    return {
+      layout
+    }
+  }
 })
 </script>
 
@@ -21,20 +32,6 @@ export default defineComponent({
   box-sizing: border-box;
   font-family: 'Noto Sans', sans-serif;
   font-weight: 500;
-}
-
-.header-component {
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  background: white;
-}
-
-.view {
-  display: relative;
-  z-index: 999;
-  padding-top: 70px;
-  min-height: calc(100vh - 100px);
 }
 
 body {
@@ -54,12 +51,6 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.container {
-  padding: 10px;
-  margin: 0 50px;
-  height: 100%;
 }
 
 :root {

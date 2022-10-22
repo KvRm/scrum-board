@@ -1,7 +1,7 @@
 <template>
   <div class="task">
     <p class="title">
-      <router-link class="link" :to="`${board}/${link}`">
+      <router-link class="link" :to="`/board/${board}/${link}`">
         {{ title }}
       </router-link>
     </p>

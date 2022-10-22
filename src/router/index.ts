@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import { boardRoutes } from './modules/board.routes'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -8,14 +7,19 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/MainView.vue')
   },
   {
+    path: '/board/:board',
+    name: 'board',
+    component: () => import('../views/BoardView.vue')
+  },
+  {
+    path: '/board/:board/:task',
+    name: 'task',
+    component: () => import('../views/TaskView.vue')
+  },
+  {
     path: '/my-tasks',
     name: 'my-tasks',
     component: () => import('../views/MyTasksView.vue')
-  },
-  {
-    path: '/search',
-    name: 'search',
-    component: () => import('../views/SearchView.vue')
   },
   {
     path: '/auth',
@@ -27,7 +31,15 @@ const routes: Array<RouteRecordRaw> = [
     name: 'register',
     component: () => import('../views/RegisterView.vue')
   },
-  ...boardRoutes
+  {
+    path: '/error-404',
+    name: 'error-404',
+    component: () => import('@/layout/Error404Layout.vue')
+  },
+  {
+    path: '/:pathMatch(.*)',
+    redirect: 'error-404'
+  }
 ]
 
 const router = createRouter({

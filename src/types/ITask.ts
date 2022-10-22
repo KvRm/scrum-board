@@ -23,8 +23,9 @@ export interface ITask extends IMyTask {
 }
 
 export interface IComment {
+  id?: string
   author: string
-  dateAndTime: string
+  creatingTime: string
   text: string
 }
 
@@ -33,4 +34,19 @@ export enum TaskCriticalLvl {
   high = 'Высокая',
   medium = 'Средняя',
   low = 'Низкая'
+}
+
+interface task {
+  id?: string
+  board: IBoard
+  completeDate: string
+  author: string
+  statusSectionTitle: string
+  title: string
+  criticalLvl: TaskCriticalLvl
+  tags: string[]
+  link: string
+  description: string
+  executor: string
+  comments: IComment[]
 }
