@@ -1,11 +1,11 @@
 <template>
   <div class="auth-menu">
-    <router-link to="/auth">
+    <router-link to="/login">
       <ButtonUI :color="ButtonColor.green" :size="ButtonSize.medium">
         Войти
       </ButtonUI>
     </router-link>
-    <router-link to="/register">
+    <router-link to="/login">
       <ButtonUI :color="ButtonColor.green" :size="ButtonSize.medium">
         Регистрация
       </ButtonUI>

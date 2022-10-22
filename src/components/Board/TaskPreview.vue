@@ -31,6 +31,7 @@ export default defineComponent({
 
 .title {
   justify-self: flex-start;
+  margin: 14px 0;
 }
 
 .link:hover {

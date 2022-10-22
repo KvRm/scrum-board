@@ -32,6 +32,7 @@ export default defineComponent({
   box-sizing: border-box;
   font-family: 'Noto Sans', sans-serif;
   font-weight: 500;
+  margin: 0;
 }
 
 body {
