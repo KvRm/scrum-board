@@ -1,106 +1,95 @@
-// import router from '@/router'
-// import { getUserInfo, login, register } from '@/services/auth'
-// import { TOKEN_KEY } from '@/lib/localStorageKeys'
+import router from '@/router'
+import { ActionTree } from 'vuex'
+import { Actions, AuthActionsEnum } from './action-types'
+import { RootState } from '@/stores/types'
+import { AuthMutationEnum } from './mutation-types'
+import { LoginRequest } from '@/types/auth'
 
-// import { ActionTree } from 'vuex'
-// import { Actions, AuthActionsEnum } from './action-types'
-// import { RootState } from '@/stores/types'
-// import { LoginRequest, RegisterRequest } from '@/types'
-// import { AuthMutationEnum } from './mutation-types'
+export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
+  async [AuthActionsEnum.LOGIN](
+    { dispatch, commit, state },
+    body: LoginRequest
+  ) {
+    try {
+      commit(AuthMutationEnum.LOADING, true)
 
-// export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
-//   async [AuthActionsEnum.GET_USER_INFO]({ commit }) {
-//     try {
-//       commit(AuthMutationEnum.ERROR, '')
-//       commit(AuthMutationEnum.LOADING, true)
+      const { data, status } = await login(body)
 
-//       const { data, status } = await getUserInfo()
+      if (status !== 200) throw new Error('Fail to login')
 
-//       if (status !== 200) throw new Error('Fail to authenticate')
+      await dispatch(AuthActionsEnum.GET_USER_INFO)
 
-//       commit(AuthMutationEnum.USER, data.user)
-//       commit(AuthMutationEnum.AUTHENTICATED, true)
+      if (!state.authenticated) return
 
-//       return true
-//     } catch (error) {
-//       window.localStorage.removeItem(TOKEN_KEY)
+      router.push('/')
+    } catch (error) {
+      commit(AuthMutationEnum.ERROR, (error as Error).message)
+    } finally {
+      commit(AuthMutationEnum.LOADING, false)
+    }
+  },
 
-//       commit(AuthMutationEnum.ERROR, (error as Error).message)
-//       return false
-//     } finally {
-//       commit(AuthMutationEnum.LOADING, false)
-//     }
-//   },
+  async [AuthActionsEnum.REGISTER](
+    { commit, dispatch, state },
+    body: RegisterRequest
+  ) {
+    try {
+      commit(AuthMutationEnum.ERROR, '')
+      commit(AuthMutationEnum.LOADING, true)
 
-//   async [AuthActionsEnum.LOGIN](
-//     { dispatch, commit, state },
-//     body: LoginRequest
-//   ) {
-//     try {
-//       commit(AuthMutationEnum.LOADING, true)
+      const { data, status } = await register(body)
 
-//       const { data, status } = await login(body)
+      if (status !== 201) throw new Error('Fail to register')
 
-//       if (status !== 200) throw new Error('Fail to login')
+      await dispatch(AuthActionsEnum.GET_USER_INFO)
 
-//       window.localStorage.setItem(TOKEN_KEY, data.token)
+      if (!state.authenticated) throw new Error('Session Expired')
 
-//       await dispatch(AuthActionsEnum.GET_USER_INFO)
+      router.push('/')
+    } catch (error) {
+      commit(AuthMutationEnum.ERROR, (error as Error).message)
+    } finally {
+      commit(AuthMutationEnum.LOADING, false)
+    }
+  },
 
-//       if (!state.authenticated) return
+  [AuthActionsEnum.LOGOUT]({ commit }) {
+    commit(AuthMutationEnum.RESET, undefined)
 
-//       router.push('/')
-//     } catch (error) {
-//       commit(AuthMutationEnum.ERROR, (error as Error).message)
-//     } finally {
-//       commit(AuthMutationEnum.LOADING, false)
-//     }
-//   },
+    router.push('/login')
+  }
 
-//   async [AuthActionsEnum.REGISTER](
-//     { commit, dispatch, state },
-//     body: RegisterRequest
-//   ) {
-//     try {
-//       commit(AuthMutationEnum.ERROR, '')
-//       commit(AuthMutationEnum.LOADING, true)
+  // async [AuthActionsEnum.AUTO_LOGIN]({ dispatch, commit, state }) {
+  //   try {
+  //     await dispatch(AuthActionsEnum.GET_USER_INFO)
 
-//       const { data, status } = await register(body)
+  //     if (!state.authenticated) throw new Error('Session Expired')
 
-//       if (status !== 201) throw new Error('Fail to register')
+  //     return Promise.resolve()
+  //   } catch (err) {
+  //     commit(AuthMutationEnum.AUTHENTICATED, false)
+  //     commit(AuthMutationEnum.ERROR, (err as Error).message)
+  //   }
+  // },
 
-//       window.localStorage.setItem(TOKEN_KEY, data.token)
+  // async [AuthActionsEnum.GET_USER_INFO]({ commit }) {
+  //   try {
+  //     commit(AuthMutationEnum.ERROR, '')
+  //     commit(AuthMutationEnum.LOADING, true)
 
-//       await dispatch(AuthActionsEnum.GET_USER_INFO)
+  //     const { data, status } = await getUserInfo()
 
-//       if (!state.authenticated) throw new Error('Session Expired')
+  //     if (status !== 200) throw new Error('Fail to authenticate')
 
-//       router.push('/')
-//     } catch (error) {
-//       commit(AuthMutationEnum.ERROR, (error as Error).message)
-//     } finally {
-//       commit(AuthMutationEnum.LOADING, false)
-//     }
-//   },
+  //     commit(AuthMutationEnum.USER, data.user)
+  //     commit(AuthMutationEnum.AUTHENTICATED, true)
 
-//   async [AuthActionsEnum.AUTO_LOGIN]({ dispatch, commit, state }) {
-//     try {
-//       await dispatch(AuthActionsEnum.GET_USER_INFO)
-
-//       if (!state.authenticated) throw new Error('Session Expired')
-
-//       return Promise.resolve()
-//     } catch (err) {
-//       commit(AuthMutationEnum.AUTHENTICATED, false)
-//       commit(AuthMutationEnum.ERROR, (err as Error).message)
-//     }
-//   },
-
-//   [AuthActionsEnum.LOGOUT]({ commit }) {
-//     commit(AuthMutationEnum.RESET, undefined)
-
-//     router.push('/login')
-
-//     window.localStorage.removeItem(TOKEN_KEY)
-//   }
-// }
+  //     return true
+  //   } catch (error) {
+  //     commit(AuthMutationEnum.ERROR, (error as Error).message)
+  //     return false
+  //   } finally {
+  //     commit(AuthMutationEnum.LOADING, false)
+  //   }
+  // }
+}

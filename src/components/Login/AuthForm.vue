@@ -1,15 +1,20 @@
 <template>
   <form class="form" @submit.prevent="handelForm">
     <h2 class="title">Авторизация</h2>
-    <InputUI :title="'Почта'" />
-    <InputUI :title="'Пароль'" />
+
+    Почта
+    <input type="text" v-model="email" />
+    Пароль
+    <input type="password" v-model="password" />
 
     <ButtonUI
       class="submit-button"
       :color="ButtonColor.green"
       :size="ButtonSize.medium"
-      >Войти</ButtonUI
+      @click="signIn"
     >
+      Войти
+    </ButtonUI>
     <p class="link">
       Нет аккаунта?
       <span @click="changeForm">Регистрация</span>
@@ -18,16 +23,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import InputUI from '@/components/UI/InputUI.vue'
+import { defineComponent, ref } from 'vue'
 import ButtonUI, { ButtonColor, ButtonSize } from '@/components/UI/ButtonUI.vue'
 import { useRouter } from 'vue-router'
+import { login } from '@/services/auth/services'
+import type { LoginRequest } from '@/types/auth/index'
 
 export default defineComponent({
-  components: { InputUI, ButtonUI },
+  components: { ButtonUI },
 
   setup() {
     const router = useRouter()
+
+    const email = ref<string>('')
+    const password = ref<string>('')
+
+    function signIn() {
+      const body:LoginRequest = {
+        email.value,
+        password.value
+      }
+
+      console.log(login({email.value, password.value}))
+    }
 
     function changeForm() {
       router.push({
@@ -40,7 +58,10 @@ export default defineComponent({
     return {
       changeForm,
       ButtonColor,
-      ButtonSize
+      ButtonSize,
+      email,
+      password,
+      signIn
     }
   }
 })

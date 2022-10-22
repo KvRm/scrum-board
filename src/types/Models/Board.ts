@@ -3,7 +3,7 @@ import { Task } from '..'
 export interface Board {
   id: string
   title: string
-  ownerIds: string
+  ownerId: string
   participantsIds: string[]
   statusSections: StatusSection[]
 }

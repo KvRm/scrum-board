@@ -4,12 +4,10 @@ export interface Task {
   criticalLvl: TaskCriticalLvl
   tags: string[]
   completeDate: string
-  author: string
-  executor: string
+  authorId: string
+  executorId: string
   description: string
   comments: Comment[]
-  boardId: string
-  statusSectionLink: string
 }
 
 interface Comment {
