@@ -1,7 +1,7 @@
 <template>
   <div class="board-header">
     <div class="settings">
-      <h2 class="title">{{ boardName }}</h2>
+      <h2 class="title">Название доски</h2>
       <ul class="controllers">
         <li class="controller" data-tooltip="Пользователи">
           <img class="icon" src="@/assets/icons/user.svg" alt="Пользователи" />
@@ -37,13 +37,6 @@ export default defineComponent({
   components: {
     InputUI,
     SelectUI
-  },
-
-  props: {
-    boardName: {
-      type: String,
-      required: true
-    }
   },
 
   setup() {

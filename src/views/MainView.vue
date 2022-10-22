@@ -5,28 +5,19 @@
     </aside>
     <main class="main-container">
       <div class="board-list">
-        <BoardsList
-          :listTitle="'Мои доски'"
-          :boardsList="boardsList"
-          :isMyBoardsList="true"
-        />
+        <BoardsList :listTitle="'Мои доски'" :isMyBoardsList="true" />
       </div>
       <div class="board-list">
-        <BoardsList
-          :listTitle="'Все доски'"
-          :boardsList="boardsList"
-          :isMyBoardsList="false"
-        />
+        <BoardsList :listTitle="'Все доски'" :isMyBoardsList="false" />
       </div>
     </main>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import HistoryComponent from '@/components/Main/HistoryComponent.vue'
 import BoardsList from '@/components/Main/BoardsList.vue'
-import { IBoard } from '@/types'
 
 export default defineComponent({
   components: {
@@ -35,16 +26,7 @@ export default defineComponent({
   },
 
   setup() {
-    const boardsList = ref<IBoard[]>([
-      {
-        boardTitle: 'Тестовая доска',
-        boardLink: '/board/2'
-      }
-    ])
-
-    return {
-      boardsList
-    }
+    return {}
   }
 })
 </script>

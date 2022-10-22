@@ -3,12 +3,7 @@
     class="sections-container"
     :style="`grid-template-columns: repeat(${sectionListLength + 1}, auto)`"
   >
-    <SectionComponent
-      v-for="(section, index) in sectionList"
-      :key="index"
-      :title="section.title"
-      :currentTaskList="section.tasks"
-    />
+    <SectionComponent />
     <div v-if="isEditing" class="add-section">
       <img src="@/assets/icons/plus.svg" alt="Добавить" />
     </div>
@@ -18,7 +13,6 @@
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
 import SectionComponent from '@/components/Board/SectionComponent.vue'
-import { TaskCriticalLvl, IStatusSection } from '@/types'
 
 export default defineComponent({
   components: { SectionComponent },
@@ -26,72 +20,12 @@ export default defineComponent({
   setup() {
     const isEditing = computed(() => !false)
 
-    const sectionList: IStatusSection[] = [
-      {
-        title: 'Нерешенные',
-        tasks: [
-          {
-            title: 'Название задачи',
-            criticalLvl: TaskCriticalLvl.high,
-            tags: ['Спринт 1'],
-            link: '2'
-          },
-          {
-            title: 'Название задачи',
-            criticalLvl: TaskCriticalLvl.high,
-            tags: ['Спринт 1'],
-            link: '2'
-          },
-          {
-            title: 'Название задачи',
-            criticalLvl: TaskCriticalLvl.high,
-            tags: ['Спринт 1'],
-            link: '2'
-          },
-          {
-            title: 'Название задачи',
-            criticalLvl: TaskCriticalLvl.high,
-            tags: ['Спринт 1'],
-            link: '2'
-          }
-        ]
-      },
-      {
-        title: 'В работе',
-        tasks: [
-          {
-            title: 'Название задачи',
-            criticalLvl: TaskCriticalLvl.high,
-            tags: ['Спринт 1'],
-            link: '2'
-          },
-          {
-            title: 'Название задачи',
-            criticalLvl: TaskCriticalLvl.high,
-            tags: ['Спринт 1'],
-            link: '2'
-          }
-        ]
-      },
-      {
-        title: 'Решенные',
-        tasks: [
-          {
-            title: 'Название задачи',
-            criticalLvl: TaskCriticalLvl.high,
-            tags: ['Спринт 1'],
-            link: '2'
-          }
-        ]
-      }
-    ]
-
-    const sectionListLength = computed(() => sectionList.length)
+    // const sectionListLength = computed(() => sectionList.length)
 
     return {
       isEditing,
-      sectionList,
-      sectionListLength
+      // sectionList,
+      // sectionListLength
     }
   }
 })

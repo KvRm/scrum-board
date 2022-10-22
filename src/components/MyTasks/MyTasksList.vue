@@ -1,23 +1,13 @@
 <template>
   <ul class="my-task-list">
     <li class="my-task-item" v-for="(task, index) in myTasksList" :key="index">
-      <MyTask
-        :title="task.title"
-        :boardName="task.board.boardTitle"
-        :boardLink="task.board.boardLink"
-        :criticalLvl="task.criticalLvl"
-        :completeDate="task.completeDate"
-        :author="task.author"
-        :link="task.link"
-        :statusSectionTitle="task.statusSectionTitle"
-      />
+      <MyTask />
     </li>
   </ul>
 </template>
 
 <script lang="ts">
-import { IMyTask } from '@/types'
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import MyTask from './MyTaskItem.vue'
 
 export default defineComponent({
@@ -25,11 +15,7 @@ export default defineComponent({
     MyTask
   },
 
-  props: {
-    myTasksList: {
-      type: Array as PropType<IMyTask[]>
-    }
-  },
+  props: {},
 
   setup() {
     return {}

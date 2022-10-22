@@ -6,15 +6,14 @@
         <img src="@/assets/icons/plus.svg" alt="" srcset="" />
       </div>
     </li>
-    <li class="board-item" v-for="(item, index) in boardsList" :key="index">
+    <li class="board-item">
       <BoardPreview />
     </li>
   </ul>
 </template>
 
 <script lang="ts">
-import { IBoard } from '@/types/IBoard'
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import BoardPreview from './BoardPreview.vue'
 
 export default defineComponent({
@@ -25,10 +24,6 @@ export default defineComponent({
     },
     isMyBoardsList: {
       type: Boolean,
-      required: true
-    },
-    boardsList: {
-      type: Array as PropType<IBoard[]>,
       required: true
     }
   },

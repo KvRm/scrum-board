@@ -1,26 +1,17 @@
 <template>
   <section class="section">
-    <p class="title">{{ title }}</p>
-    <TaskList :taskList="currentTaskList" />
+    <p class="title">Название секции</p>
+    <TaskList />
   </section>
 </template>
 
 <script lang="ts">
-import { TaskCriticalLvl, ITaskPreview } from '@/types'
-import { defineComponent, PropType } from 'vue'
+import { TaskCriticalLvl } from '@/types'
+import { defineComponent } from 'vue'
 import TaskList from './TaskList.vue'
 
 export default defineComponent({
   components: { TaskList },
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    currentTaskList: {
-      type: Array as PropType<ITaskPreview[]>
-    }
-  },
 
   setup() {
     return { TaskCriticalLvl }

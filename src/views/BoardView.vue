@@ -1,6 +1,6 @@
 <template>
   <div class="board">
-    <BoardHeader :boardName="boardName" />
+    <BoardHeader />
     <SectionsContainer />
   </div>
 </template>
@@ -15,10 +15,7 @@ export default defineComponent({
   components: { SectionsContainer, BoardHeader },
 
   setup() {
-    return {
-      // валидация, макс длина 50 символов
-      boardName: 'Тестовая доска'
-    }
+    return {}
   }
 })
 </script>

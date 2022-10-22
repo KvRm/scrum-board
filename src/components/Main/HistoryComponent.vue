@@ -2,60 +2,19 @@
   <div class="history">
     <h4 class="title">История</h4>
     <ul class="board-list">
-      <li
-        class="board-item"
-        v-for="boardLink in boardLinks"
-        :key="boardLink.link"
-      >
-        <router-link class="link" :to="boardLink.link">
-          {{ boardLink.name }}
-        </router-link>
+      <li class="board-item">
+        <router-link class="link" to="board/1/2"> Ссылка на доску </router-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-
-export interface IBoardLink {
-  name: string
-  // validate "/*"
-  link: string
-}
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   setup() {
-    const boardLinks = ref<IBoardLink[]>([
-      {
-        name: 'Поиск',
-        link: '/search'
-      },
-      {
-        name: 'Мои задачи',
-        link: '/my-tasks'
-      },
-      {
-        name: 'Доска',
-        link: '/board'
-      },
-      {
-        name: 'Авторизация',
-        link: '/auth'
-      },
-      {
-        name: 'Регистрация',
-        link: '/register'
-      },
-      {
-        name: 'На главую',
-        link: '/'
-      }
-    ])
-
-    return {
-      boardLinks
-    }
+    return {}
   }
 })
 </script>

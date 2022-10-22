@@ -1,35 +1,21 @@
 <template>
-  <!-- index === id, при подключении бд -->
   <div class="task-list">
-    <TaskPreview
-      v-for="(task, index) in taskList"
-      :key="index"
-      :title="task.title"
-      :board="task.board"
-      :link="task.link"
-      :criticalLvl="task.criticalLvl"
-    />
+    <TaskPreview />
     <span class="add-button">+ Добавить</span>
   </div>
 </template>
 
 <script lang="ts">
-import { ITaskPreview, TaskCriticalLvl } from '@/types'
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import TaskPreview from './TaskPreview.vue'
 
 export default defineComponent({
   components: {
     TaskPreview
   },
-  props: {
-    taskList: Array as PropType<ITaskPreview[]>
-  },
 
   setup() {
-    return {
-      TaskCriticalLvl
-    }
+    return {}
   }
 })
 </script>

@@ -1,8 +1,8 @@
 <template>
   <div class="task">
     <p class="title">
-      <router-link class="link" :to="`/board/${board}/${link}`">
-        {{ title }}
+      <router-link class="link" :to="`/board/1/2`">
+        Название задачи
       </router-link>
     </p>
   </div>
@@ -12,20 +12,6 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    link: {
-      type: String,
-      required: true
-    },
-    board: {
-      type: String,
-      required: true
-    }
-  },
   setup() {
     return {}
   }

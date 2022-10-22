@@ -1,16 +1,12 @@
 <template>
   <div class="my-task">
     <span class="title">
-      <router-link class="link" :to="link">
-        {{ title }}
-      </router-link>
+      <router-link class="link" to="board/2/1"> Название задачи </router-link>
     </span>
     <span class="board">
-      <router-link class="link" :to="'' + boardLink">
-        {{ boardName }}
-      </router-link>
+      <router-link class="link" to="board/2"> Доска </router-link>
     </span>
-    <span>{{ statusSectionTitle }}</span>
+    <span>Статус</span>
     <span
       class="criticalLvl"
       :class="{
@@ -19,52 +15,19 @@
         blue: criticalLvl === 'Средняя',
         green: criticalLvl === 'Низкая'
       }"
-      >{{ criticalLvl }}
+    >
+      Критичность
     </span>
-    <span class="completeDate">{{ completeDate }}</span>
-    <span class="author">{{ author }}</span>
+    <span class="completeDate">Крайний срок</span>
+    <span class="author">Автор</span>
   </div>
 </template>
 
 <script lang="ts">
-import { TaskCriticalLvl } from '@/types'
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    boardName: {
-      type: String,
-      required: true
-    },
-    boardLink: {
-      type: String,
-      required: true
-    },
-    criticalLvl: {
-      type: String as PropType<TaskCriticalLvl>,
-      required: true
-    },
-    completeDate: {
-      type: String,
-      required: true
-    },
-    author: {
-      type: String,
-      required: true
-    },
-    link: {
-      type: String,
-      required: true
-    },
-    statusSectionTitle: {
-      type: String,
-      required: true
-    }
-  },
+  props: {},
 
   setup() {
     return {}

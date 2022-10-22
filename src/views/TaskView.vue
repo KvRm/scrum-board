@@ -61,7 +61,4 @@ export default defineComponent({
 .relations {
   text-align: right;
 }
-
-.operating {
-}
 </style>

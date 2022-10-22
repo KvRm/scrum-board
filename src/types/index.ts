@@ -1,3 +1,3 @@
-export * from './ITask'
-export * from './IBoard'
-export * from './ISection'
+export * from './Models/Board'
+export * from './Models/Task'
+export * from './Models/User'

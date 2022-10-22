@@ -22,14 +22,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/MyTasksView.vue')
   },
   {
-    path: '/auth',
-    name: 'auth',
-    component: () => import('../views/AuthView.vue')
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: () => import('../views/RegisterView.vue')
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/LoginView.vue')
   },
   {
     path: '/error-404',

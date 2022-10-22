@@ -2,16 +2,15 @@
   <div class="container">
     <div class="my-tasks">
       <MyTasksHeader />
-      <MyTasksList :myTasksList="myTasksList" />
+      <MyTasksList />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import MyTasksHeader from '@/components/MyTasks/MyTasksHeader.vue'
 import MyTasksList from '@/components/MyTasks/MyTasksList.vue'
-import { IMyTask, TaskCriticalLvl } from '@/types'
 
 export default defineComponent({
   components: {
@@ -20,51 +19,7 @@ export default defineComponent({
   },
 
   setup() {
-    const myTasksList = ref<IMyTask[]>([
-      {
-        title: 'Моя задача',
-        board: {
-          boardTitle: 'Тестовая доска',
-          boardLink: '/board'
-        },
-        tags: ['Спринт 1'],
-        criticalLvl: TaskCriticalLvl.veryHigh,
-        completeDate: '31.10.2022',
-        author: 'Автор',
-        link: '2',
-        statusSectionTitle: 'Нерешенные'
-      },
-      {
-        title: 'Моя задача',
-        board: {
-          boardTitle: 'Тестовая доска',
-          boardLink: '/board'
-        },
-        tags: ['Спринт 1'],
-        criticalLvl: TaskCriticalLvl.high,
-        completeDate: '31.10.2022',
-        author: 'Автор',
-        link: '2',
-        statusSectionTitle: 'Нерешенные'
-      },
-      {
-        title: 'Моя задача',
-        board: {
-          boardTitle: 'Тестовая доска',
-          boardLink: '/board'
-        },
-        tags: ['Спринт 1'],
-        criticalLvl: TaskCriticalLvl.medium,
-        completeDate: '31.10.2022',
-        author: 'Автор',
-        link: '2',
-        statusSectionTitle: 'Нерешенные'
-      }
-    ])
-
-    return {
-      myTasksList
-    }
+    return {}
   }
 })
 </script>
