@@ -12,11 +12,7 @@ import BoardHeader from '@/components/Board/BoardHeader.vue'
 
 export default defineComponent({
   name: 'HomeView',
-  components: { SectionsContainer, BoardHeader },
-
-  setup() {
-    return {}
-  }
+  components: { SectionsContainer, BoardHeader }
 })
 </script>
 

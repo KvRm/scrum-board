@@ -23,10 +23,6 @@ export default defineComponent({
   components: {
     HistoryComponent,
     BoardsList
-  },
-
-  setup() {
-    return {}
   }
 })
 </script>

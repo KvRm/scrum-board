@@ -6,18 +6,19 @@
 
 <script lang="ts">
 import { Component, computed, defineComponent, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import AuthForm from '@/components/Login/AuthForm.vue'
 import RegisterForm from '@/components/Login/RegisterForm.vue'
-import { useRoute, useRouter } from 'vue-router'
 
 export default defineComponent({
   components: { AuthForm, RegisterForm },
+  
   setup() {
     const route = useRoute()
     const router = useRouter()
 
     onMounted(() => {
-      if (!route.query.type)
+      if (route.query.type !== 'register')
         router.push({
           query: { type: 'auth' }
         })

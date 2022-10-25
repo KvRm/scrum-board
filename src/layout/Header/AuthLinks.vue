@@ -1,6 +1,6 @@
 <template>
   <div class="auth-menu">
-    <router-link to="/login">
+    <router-link to="/login?type=auth">
       <ButtonUI :color="ButtonColor.green" :size="ButtonSize.medium">
         Войти
       </ButtonUI>
@@ -18,9 +18,7 @@ import { defineComponent } from 'vue'
 import ButtonUI, { ButtonColor, ButtonSize } from '@/components/UI/ButtonUI.vue'
 
 export default defineComponent({
-  components: {
-    ButtonUI
-  },
+  components: { ButtonUI },
 
   setup() {
     return {

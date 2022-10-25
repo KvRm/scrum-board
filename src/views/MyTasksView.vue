@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-    <div class="my-tasks">
-      <MyTasksHeader />
-      <MyTasksList />
-    </div>
+    <MyTasksHeader />
+    <MyTasksList />
   </div>
 </template>
 
@@ -16,12 +14,6 @@ export default defineComponent({
   components: {
     MyTasksHeader,
     MyTasksList
-  },
-
-  setup() {
-    return {}
   }
 })
 </script>
-
-<style scoped></style>

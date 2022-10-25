@@ -3,31 +3,33 @@ import { ActionTree } from 'vuex'
 import { Actions, AuthActionsEnum } from './action-types'
 import { RootState } from '@/stores/types'
 import { AuthMutationEnum } from './mutation-types'
-import { LoginRequest } from '@/types/auth'
+import { RegisterRequest } from '@/types/auth'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '@/services/auth'
 
 export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
-  async [AuthActionsEnum.LOGIN](
-    { dispatch, commit, state },
-    body: LoginRequest
-  ) {
-    try {
-      commit(AuthMutationEnum.LOADING, true)
+  // async [AuthActionsEnum.LOGIN](
+  //   { dispatch, commit, state },
+  //   body: LoginRequest
+  // ) {
+  //   try {
+  //     commit(AuthMutationEnum.LOADING, true)
 
-      const { data, status } = await login(body)
+  //     const { data, status } = await login(body)
 
-      if (status !== 200) throw new Error('Fail to login')
+  //     if (status !== 200) throw new Error('Fail to login')
 
-      await dispatch(AuthActionsEnum.GET_USER_INFO)
+  //     await dispatch(AuthActionsEnum.GET_USER_INFO)
 
-      if (!state.authenticated) return
+  //     if (!state.authenticated) return
 
-      router.push('/')
-    } catch (error) {
-      commit(AuthMutationEnum.ERROR, (error as Error).message)
-    } finally {
-      commit(AuthMutationEnum.LOADING, false)
-    }
-  },
+  //     router.push('/')
+  //   } catch (error) {
+  //     commit(AuthMutationEnum.ERROR, (error as Error).message)
+  //   } finally {
+  //     commit(AuthMutationEnum.LOADING, false)
+  //   }
+  // },
 
   async [AuthActionsEnum.REGISTER](
     { commit, dispatch, state },
@@ -37,9 +39,11 @@ export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
       commit(AuthMutationEnum.ERROR, '')
       commit(AuthMutationEnum.LOADING, true)
 
-      const { data, status } = await register(body)
+      console.log(
+        createUserWithEmailAndPassword(auth, body.email, body.password)
+      )
 
-      if (status !== 201) throw new Error('Fail to register')
+      // if (status !== 201) throw new Error('Fail to register')
 
       await dispatch(AuthActionsEnum.GET_USER_INFO)
 
@@ -51,13 +55,13 @@ export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
     } finally {
       commit(AuthMutationEnum.LOADING, false)
     }
-  },
-
-  [AuthActionsEnum.LOGOUT]({ commit }) {
-    commit(AuthMutationEnum.RESET, undefined)
-
-    router.push('/login')
   }
+
+  // [AuthActionsEnum.LOGOUT]({ commit }) {
+  //   commit(AuthMutationEnum.RESET, undefined)
+
+  //   router.push('/login')
+  // }
 
   // async [AuthActionsEnum.AUTO_LOGIN]({ dispatch, commit, state }) {
   //   try {

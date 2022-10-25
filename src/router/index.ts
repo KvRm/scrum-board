@@ -4,32 +4,50 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'main',
-    component: () => import('../views/MainView.vue')
+    component: () => import('../views/MainView.vue'),
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/board/:board',
     name: 'board',
-    component: () => import('../views/BoardView.vue')
+    component: () => import('../views/BoardView.vue'),
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/board/:board/:task',
     name: 'task',
-    component: () => import('../views/TaskView.vue')
+    component: () => import('../views/TaskView.vue'),
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/my-tasks',
     name: 'my-tasks',
-    component: () => import('../views/MyTasksView.vue')
+    component: () => import('../views/MyTasksView.vue'),
+    meta: {
+      auth: true
+    }
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('../layout/LoginView.vue')
+    component: () => import('../layout/LoginView.vue'),
+    meta: {
+      login: true
+    }
   },
   {
     path: '/error-404',
     name: 'error-404',
-    component: () => import('@/layout/Error404Layout.vue')
+    component: () => import('@/layout/Error404Layout.vue'),
+    meta: {
+      error: true
+    }
   },
   {
     path: '/:pathMatch(.*)',

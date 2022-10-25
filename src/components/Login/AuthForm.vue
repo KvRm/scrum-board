@@ -1,5 +1,5 @@
 <template>
-  <form class="form" @submit.prevent="handelForm">
+  <form class="form" @submit.prevent="handleForm">
     <h2 class="title">Авторизация</h2>
 
     Почта
@@ -11,7 +11,6 @@
       class="submit-button"
       :color="ButtonColor.green"
       :size="ButtonSize.medium"
-      @click="signIn"
     >
       Войти
     </ButtonUI>
@@ -26,26 +25,18 @@
 import { defineComponent, ref } from 'vue'
 import ButtonUI, { ButtonColor, ButtonSize } from '@/components/UI/ButtonUI.vue'
 import { useRouter } from 'vue-router'
-import { login } from '@/services/auth/services'
-import type { LoginRequest } from '@/types/auth/index'
+import { useStore } from '@/stores'
+import { RegisterRequest } from '@/types'
 
 export default defineComponent({
   components: { ButtonUI },
 
   setup() {
     const router = useRouter()
+    const store = useStore()
 
     const email = ref<string>('')
     const password = ref<string>('')
-
-    function signIn() {
-      const body:LoginRequest = {
-        email.value,
-        password.value
-      }
-
-      console.log(login({email.value, password.value}))
-    }
 
     function changeForm() {
       router.push({
@@ -55,13 +46,22 @@ export default defineComponent({
       })
     }
 
+    // function handleForm() {
+    //   const payload: RegisterRequest = {
+    //     email: email.value,
+    //     password: password.value
+    //   }
+
+    //   // store.dispatch('REGISTER', payload)
+    // }
+
     return {
       changeForm,
       ButtonColor,
       ButtonSize,
       email,
-      password,
-      signIn
+      password
+      // handleForm
     }
   }
 })

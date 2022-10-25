@@ -11,15 +11,7 @@ import { defineComponent } from 'vue'
 import MyTask from './MyTaskItem.vue'
 
 export default defineComponent({
-  components: {
-    MyTask
-  },
-
-  props: {},
-
-  setup() {
-    return {}
-  }
+  components: { MyTask }
 })
 </script>
 

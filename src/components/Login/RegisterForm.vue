@@ -1,17 +1,16 @@
 <template>
-  <form class="form" @submit.prevent="handelForm">
+  <form class="form" @submit.prevent="handleForm">
     <h2 class="title">Регистрация</h2>
     Почта
     <input type="text" v-model="email" />
     Пароль
     <input type="password" v-model="password" />
-    <InputUI :title="'Повторите пароль'" />
+    <input type="password" />
 
     <ButtonUI
       class="submit-button"
       :color="ButtonColor.green"
       :size="ButtonSize.medium"
-      @click="register"
     >
       Войти
     </ButtonUI>
@@ -24,25 +23,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch, watchEffect } from 'vue'
-import InputUI from '@/components/UI/InputUI.vue'
+import { defineComponent, ref } from 'vue'
 import ButtonUI, { ButtonColor, ButtonSize } from '@/components/UI/ButtonUI.vue'
 import { useRouter } from 'vue-router'
-import { createUserWithEmailAndPassword } from '@firebase/auth'
-import { auth } from '@/services/auth'
+import { RegisterRequest } from '@/types'
+import { useStore } from '@/stores'
 
 export default defineComponent({
-  components: { InputUI, ButtonUI },
+  components: { ButtonUI },
 
   setup() {
     const router = useRouter()
+    const store = useStore()
 
     const email = ref<string>('')
     const password = ref<string>('')
-
-    function register() {
-      createUserWithEmailAndPassword(auth, email.value, password.value)
-    }
 
     function changeForm() {
       router.push({
@@ -52,13 +47,22 @@ export default defineComponent({
       })
     }
 
+    function handleForm() {
+      const payload: RegisterRequest = {
+        email: email.value,
+        password: password.value
+      }
+
+      store.dispatch('REGISTER', payload)
+    }
+
     return {
       changeForm,
       ButtonColor,
       ButtonSize,
       email,
       password,
-      register
+      handleForm
     }
   }
 })

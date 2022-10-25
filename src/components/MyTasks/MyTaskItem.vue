@@ -26,13 +26,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-export default defineComponent({
-  props: {},
-
-  setup() {
-    return {}
-  }
-})
+export default defineComponent({})
 </script>
 
 <style scoped>

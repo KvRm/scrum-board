@@ -1,7 +1,7 @@
 import { ActionContext } from 'vuex'
 import { Mutations } from './mutation-types'
 import { RootState } from '../types'
-import { LoginRequest } from '@/types/auth'
+import { LoginRequest, RegisterRequest } from '@/types/auth'
 
 // типизация стейта
 type AugmentedActionContext = {
@@ -20,7 +20,7 @@ export enum AuthActionsEnum {
 }
 
 export interface Actions {
-  LOGIN(args: AugmentedActionContext, payload: LoginRequest): Promise<void>
-  REGISTER(args: AugmentedActionContext, payload: LoginRequest): Promise<void>
-  LOGOUT(args: AugmentedActionContext): void
+  // LOGIN(args: AugmentedActionContext, payload: LoginRequest): Promise<void>
+  REGISTER(args: AugmentedActionContext, payload: RegisterRequest): Promise<void>
+  // LOGOUT(args: AugmentedActionContext): void
 }
