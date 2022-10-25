@@ -2,9 +2,9 @@ import { GetterTree } from 'vuex'
 import { RootState } from '../types'
 
 export type Getters<S = RootState['auth']> = {
-  authState(state: S): boolean
+  errorState(state: S): string
 }
 
 export const getters: GetterTree<RootState['auth'], RootState> & Getters = {
-  authState: (state) => state.authenticated
+  errorState: (state) => state.error
 }

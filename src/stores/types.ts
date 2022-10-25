@@ -17,5 +17,5 @@ export interface RootState {
   }
 }
 
-export type Store = AuthStore<Pick<RootState, 'auth'>> 
+export type Store = AuthStore<Pick<RootState, 'auth'>>
 // & BoardStore<Pick<RootState, 'board'>>

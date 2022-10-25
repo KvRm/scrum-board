@@ -31,21 +31,25 @@ export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
   //   }
   // },
 
-  async [AuthActionsEnum.REGISTER](
-    { commit, dispatch, state },
-    body: RegisterRequest
-  ) {
+  async [AuthActionsEnum.REGISTER]({ commit, state }, body: RegisterRequest) {
     try {
       commit(AuthMutationEnum.ERROR, '')
       commit(AuthMutationEnum.LOADING, true)
 
-      console.log(
-        createUserWithEmailAndPassword(auth, body.email, body.password)
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        body.email,
+        body.password
       )
 
-      // if (status !== 201) throw new Error('Fail to register')
+      const { uid, refreshToken } = userCredential.user
 
-      await dispatch(AuthActionsEnum.GET_USER_INFO)
+      commit(AuthMutationEnum['AUTHENTICATED'], true)
+      commit(AuthMutationEnum['USER'], {
+        uid: uid,
+        email: body.email,
+        token: refreshToken
+      })
 
       if (!state.authenticated) throw new Error('Session Expired')
 

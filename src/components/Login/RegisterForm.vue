@@ -14,7 +14,7 @@
     >
       Войти
     </ButtonUI>
-
+    <p>{{ errorMessage }}</p>
     <p class="link">
       Уже есть аккаунт?
       <span @click="changeForm">Авторизация</span>
@@ -23,11 +23,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import ButtonUI, { ButtonColor, ButtonSize } from '@/components/UI/ButtonUI.vue'
+import { computed, defineComponent, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { RegisterRequest } from '@/types'
 import { useStore } from '@/stores'
+import ButtonUI, { ButtonColor, ButtonSize } from '@/components/UI/ButtonUI.vue'
+import { RegisterRequest } from '@/types'
 
 export default defineComponent({
   components: { ButtonUI },
@@ -56,12 +56,15 @@ export default defineComponent({
       store.dispatch('REGISTER', payload)
     }
 
+    const errorMessage = computed<string>(() => store.getters.errorState)
+
     return {
       changeForm,
       ButtonColor,
       ButtonSize,
       email,
       password,
+      errorMessage,
       handleForm
     }
   }
