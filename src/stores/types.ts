@@ -4,7 +4,7 @@ import { AuthStore } from './auth'
 
 export interface RootState {
   auth: {
-    user?: User
+    user: User
     authenticated: boolean
     loading: boolean
     error: string

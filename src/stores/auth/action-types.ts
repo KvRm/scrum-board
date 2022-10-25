@@ -20,7 +20,7 @@ export enum AuthActionsEnum {
 }
 
 export interface Actions {
-  // LOGIN(args: AugmentedActionContext, payload: LoginRequest): Promise<void>
+  LOGIN(args: AugmentedActionContext, payload: LoginRequest): Promise<void>
   REGISTER(args: AugmentedActionContext, payload: RegisterRequest): Promise<void>
   // LOGOUT(args: AugmentedActionContext): void
 }

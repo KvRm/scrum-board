@@ -20,7 +20,11 @@ export const mutations: MutationTree<RootState['auth']> & Mutations = {
   },
 
   [AuthMutationEnum.RESET]: (state) => {
-    state.user = undefined
+    state.user = {
+      email: '',
+      token: '',
+      uid: ''
+    }
     state.authenticated = false
   }
 }

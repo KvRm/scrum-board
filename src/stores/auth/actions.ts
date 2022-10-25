@@ -3,44 +3,56 @@ import { ActionTree } from 'vuex'
 import { Actions, AuthActionsEnum } from './action-types'
 import { RootState } from '@/stores/types'
 import { AuthMutationEnum } from './mutation-types'
-import { RegisterRequest } from '@/types/auth'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { LoginRequest, RegisterRequest } from '@/types/auth'
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  UserCredential
+} from 'firebase/auth'
 import { auth } from '@/services/auth'
+import { LocalStorageKeys, useLocalStorage } from '@/composables/localStorage'
 
 export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
-  // async [AuthActionsEnum.LOGIN](
-  //   { dispatch, commit, state },
-  //   body: LoginRequest
-  // ) {
-  //   try {
-  //     commit(AuthMutationEnum.LOADING, true)
+  async [AuthActionsEnum.LOGIN]({ commit, state }, body: LoginRequest) {
+    try {
+      commit(AuthMutationEnum.LOADING, true)
 
-  //     const { data, status } = await login(body)
+      const userCredential: UserCredential = await signInWithEmailAndPassword(
+        auth,
+        body.email,
+        body.password
+      )
 
-  //     if (status !== 200) throw new Error('Fail to login')
+      const { uid, refreshToken, email } = userCredential.user
 
-  //     await dispatch(AuthActionsEnum.GET_USER_INFO)
+      const ls = useLocalStorage()
 
-  //     if (!state.authenticated) return
+      ls.set(LocalStorageKeys.TOKEN, refreshToken)
 
-  //     router.push('/')
-  //   } catch (error) {
-  //     commit(AuthMutationEnum.ERROR, (error as Error).message)
-  //   } finally {
-  //     commit(AuthMutationEnum.LOADING, false)
-  //   }
-  // },
+      commit(AuthMutationEnum.AUTHENTICATED, true)
+      commit(AuthMutationEnum.USER, {
+        email: email as string,
+        token: refreshToken,
+        uid: uid
+      })
+
+      if (!state.authenticated) return
+
+      router.push('/')
+    } catch (error) {
+      commit(AuthMutationEnum.ERROR, (error as Error).message)
+    } finally {
+      commit(AuthMutationEnum.LOADING, false)
+    }
+  },
 
   async [AuthActionsEnum.REGISTER]({ commit, state }, body: RegisterRequest) {
     try {
       commit(AuthMutationEnum.ERROR, '')
       commit(AuthMutationEnum.LOADING, true)
 
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        body.email,
-        body.password
-      )
+      const userCredential: UserCredential =
+        await createUserWithEmailAndPassword(auth, body.email, body.password)
 
       const { uid, refreshToken } = userCredential.user
 

@@ -5,6 +5,7 @@
     <input type="text" v-model="email" />
     Пароль
     <input type="password" v-model="password" />
+    Pass
     <input type="password" />
 
     <ButtonUI
@@ -12,7 +13,7 @@
       :color="ButtonColor.green"
       :size="ButtonSize.medium"
     >
-      Войти
+      {{ buttonText }}
     </ButtonUI>
     <p>{{ errorMessage }}</p>
     <p class="link">
@@ -39,6 +40,12 @@ export default defineComponent({
     const email = ref<string>('')
     const password = ref<string>('')
 
+    const errorMessage = computed<string>(() => store.getters.errorState)
+    const buttonText = computed<string>(() => {
+      if (store.getters.loadingState) return 'Loading...'
+      return 'Создать'
+    })
+
     function changeForm() {
       router.push({
         query: {
@@ -56,8 +63,6 @@ export default defineComponent({
       store.dispatch('REGISTER', payload)
     }
 
-    const errorMessage = computed<string>(() => store.getters.errorState)
-
     return {
       changeForm,
       ButtonColor,
@@ -65,6 +70,7 @@ export default defineComponent({
       email,
       password,
       errorMessage,
+      buttonText,
       handleForm
     }
   }

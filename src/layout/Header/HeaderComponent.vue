@@ -11,21 +11,21 @@
 </template>
 
 <script lang="ts">
-import { Component, computed, defineComponent, ref } from 'vue'
+import { useStore } from '@/stores'
+import { Component, computed, defineComponent } from 'vue'
 import AuthLinks from './AuthLinks.vue'
 import UserProfile from './UserProfile.vue'
 
 export default defineComponent({
   setup() {
-    const isAuth = ref<boolean>(false)
+    const store = useStore()
 
     const userComponent: Component = computed(() => {
-      if (isAuth.value) return UserProfile
+      if (store.getters.authState) return UserProfile
       return AuthLinks
     })
 
     return {
-      isAuth,
       userComponent
     }
   }

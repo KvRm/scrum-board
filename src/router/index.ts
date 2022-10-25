@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { routerGuard } from './routerGuard'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -59,5 +60,7 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach(routerGuard)
 
 export default router
