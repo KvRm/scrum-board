@@ -39,6 +39,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'login',
     component: () => import('../layout/LoginView.vue'),
     meta: {
+      auth: false,
       login: true
     }
   },

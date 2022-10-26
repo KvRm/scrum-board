@@ -7,14 +7,16 @@ import { LoginRequest, RegisterRequest } from '@/types/auth'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
   UserCredential
 } from 'firebase/auth'
 import { auth } from '@/services/auth'
 import { LocalStorageKeys, useLocalStorage } from '@/composables/localStorage'
 
 export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
-  async [AuthActionsEnum.LOGIN]({ commit, state }, body: LoginRequest) {
+  async [AuthActionsEnum.LOGIN]({ commit }, body: LoginRequest) {
     try {
+      commit(AuthMutationEnum.USER, null)
       commit(AuthMutationEnum.LOADING, true)
 
       const userCredential: UserCredential = await signInWithEmailAndPassword(
@@ -23,20 +25,12 @@ export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
         body.password
       )
 
-      const { uid, refreshToken, email } = userCredential.user
+      const user = userCredential.user
+      commit(AuthMutationEnum.USER, user)
 
       const ls = useLocalStorage()
-
-      ls.set(LocalStorageKeys.TOKEN, refreshToken)
-
-      commit(AuthMutationEnum.AUTHENTICATED, true)
-      commit(AuthMutationEnum.USER, {
-        email: email as string,
-        token: refreshToken,
-        uid: uid
-      })
-
-      if (!state.authenticated) return
+      ls.set(LocalStorageKeys.TOKEN, user.refreshToken)
+      ls.set(LocalStorageKeys.UID, user.uid)
 
       router.push('/')
     } catch (error) {
@@ -46,24 +40,20 @@ export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
     }
   },
 
-  async [AuthActionsEnum.REGISTER]({ commit, state }, body: RegisterRequest) {
+  async [AuthActionsEnum.REGISTER]({ commit }, body: RegisterRequest) {
     try {
-      commit(AuthMutationEnum.ERROR, '')
+      commit(AuthMutationEnum.USER, null)
       commit(AuthMutationEnum.LOADING, true)
 
       const userCredential: UserCredential =
         await createUserWithEmailAndPassword(auth, body.email, body.password)
 
-      const { uid, refreshToken } = userCredential.user
+      const user = userCredential.user
+      commit(AuthMutationEnum.USER, user)
 
-      commit(AuthMutationEnum['AUTHENTICATED'], true)
-      commit(AuthMutationEnum['USER'], {
-        uid: uid,
-        email: body.email,
-        token: refreshToken
-      })
-
-      if (!state.authenticated) throw new Error('Session Expired')
+      const ls = useLocalStorage()
+      ls.set(LocalStorageKeys.TOKEN, user.refreshToken)
+      ls.set(LocalStorageKeys.UID, user.uid)
 
       router.push('/')
     } catch (error) {
@@ -71,45 +61,25 @@ export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
     } finally {
       commit(AuthMutationEnum.LOADING, false)
     }
+  },
+
+  async [AuthActionsEnum.LOGOUT]({ commit }) {
+    try {
+      commit(AuthMutationEnum.LOADING, true)
+
+      signOut(auth)
+
+      commit(AuthMutationEnum.USER, null)
+
+      const ls = useLocalStorage()
+      ls.remove(LocalStorageKeys.TOKEN)
+      ls.remove(LocalStorageKeys.UID)
+
+      router.push('/login')
+    } catch (error) {
+      commit(AuthMutationEnum.ERROR, (error as Error).message)
+    } finally {
+      commit(AuthMutationEnum.LOADING, false)
+    }
   }
-
-  // [AuthActionsEnum.LOGOUT]({ commit }) {
-  //   commit(AuthMutationEnum.RESET, undefined)
-
-  //   router.push('/login')
-  // }
-
-  // async [AuthActionsEnum.AUTO_LOGIN]({ dispatch, commit, state }) {
-  //   try {
-  //     await dispatch(AuthActionsEnum.GET_USER_INFO)
-
-  //     if (!state.authenticated) throw new Error('Session Expired')
-
-  //     return Promise.resolve()
-  //   } catch (err) {
-  //     commit(AuthMutationEnum.AUTHENTICATED, false)
-  //     commit(AuthMutationEnum.ERROR, (err as Error).message)
-  //   }
-  // },
-
-  // async [AuthActionsEnum.GET_USER_INFO]({ commit }) {
-  //   try {
-  //     commit(AuthMutationEnum.ERROR, '')
-  //     commit(AuthMutationEnum.LOADING, true)
-
-  //     const { data, status } = await getUserInfo()
-
-  //     if (status !== 200) throw new Error('Fail to authenticate')
-
-  //     commit(AuthMutationEnum.USER, data.user)
-  //     commit(AuthMutationEnum.AUTHENTICATED, true)
-
-  //     return true
-  //   } catch (error) {
-  //     commit(AuthMutationEnum.ERROR, (error as Error).message)
-  //     return false
-  //   } finally {
-  //     commit(AuthMutationEnum.LOADING, false)
-  //   }
-  // }
 }

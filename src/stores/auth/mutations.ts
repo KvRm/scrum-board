@@ -11,20 +11,7 @@ export const mutations: MutationTree<RootState['auth']> & Mutations = {
     state.error = message
   },
 
-  [AuthMutationEnum.AUTHENTICATED]: (state, authtenticated) => {
-    state.authenticated = authtenticated
-  },
-
   [AuthMutationEnum.USER]: (state, user) => {
     state.user = user
-  },
-
-  [AuthMutationEnum.RESET]: (state) => {
-    state.user = {
-      email: '',
-      token: '',
-      uid: ''
-    }
-    state.authenticated = false
   }
 }

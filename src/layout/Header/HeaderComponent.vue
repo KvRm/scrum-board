@@ -21,7 +21,7 @@ export default defineComponent({
     const store = useStore()
 
     const userComponent: Component = computed(() => {
-      if (store.getters.authState) return UserProfile
+      if (store.getters.user) return UserProfile
       return AuthLinks
     })
 

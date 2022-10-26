@@ -6,12 +6,7 @@ import { getters } from './getters'
 
 export const authModule: Module<RootState['auth'], RootState> = {
   state: () => ({
-    user: {
-      email: '',
-      token: '',
-      uid: ''
-    },
-    authenticated: false,
+    user: null,
     loading: false,
     error: ''
   }),

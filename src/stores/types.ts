@@ -1,11 +1,11 @@
-import { Board, User } from '@/types'
+import { Board } from '@/types'
+import { User } from 'firebase/auth'
 import { AuthStore } from './auth'
 // import { BoardStore } from './board'
 
 export interface RootState {
   auth: {
-    user: User
-    authenticated: boolean
+    user: User | null
     loading: boolean
     error: string
   }

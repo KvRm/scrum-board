@@ -1,5 +1,7 @@
+import { useStore } from '@/stores'
+import { AuthMutationEnum } from '@/stores/auth'
 import { initializeApp } from 'firebase/app'
-import { getAuth } from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 const app = initializeApp({
   apiKey: 'AIzaSyBsykbgBF86M_tEjTDz4P3VlSJL2yHPYAU',
@@ -12,3 +14,9 @@ const app = initializeApp({
 })
 
 export const auth = getAuth(app)
+
+onAuthStateChanged(auth, (user) => {
+  const store = useStore()
+
+  store.commit(AuthMutationEnum.USER, user)
+})

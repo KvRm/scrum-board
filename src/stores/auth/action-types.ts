@@ -14,13 +14,11 @@ type AugmentedActionContext = {
 export enum AuthActionsEnum {
   LOGIN = 'LOGIN',
   REGISTER = 'REGISTER',
-  LOGOUT = 'LOGOUT',
-  GET_USER_INFO = 'GET_USER_INFO',
-  AUTO_LOGIN = 'AUTO_LOGIN'
+  LOGOUT = 'LOGOUT'
 }
 
-export interface Actions {
-  LOGIN(args: AugmentedActionContext, payload: LoginRequest): Promise<void>
-  REGISTER(args: AugmentedActionContext, payload: RegisterRequest): Promise<void>
-  // LOGOUT(args: AugmentedActionContext): void
+export interface Actions<A = AugmentedActionContext> {
+  LOGIN(args: A, payload: LoginRequest): Promise<void>
+  REGISTER(args: A, payload: RegisterRequest): Promise<void>
+  LOGOUT(args: A): Promise<void>
 }
