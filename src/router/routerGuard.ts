@@ -1,17 +1,14 @@
 import type { RouteLocationNormalized } from 'vue-router'
-import { LocalStorageKeys, useLocalStorage } from '@/composables/localStorage'
+import { IsLoggedIn } from '@/services/authStateChecker'
 
 export const routerGuard = async (to: RouteLocationNormalized) => {
-  const ls = useLocalStorage()
-  const token = ls.get(LocalStorageKeys.TOKEN)
-
-  if (to.meta.auth) {
-    if (token) return true
+  if (to.meta.auth === true) {
+    if (await IsLoggedIn()) return true
     else
       return {
         name: 'login'
       }
-  } else {
-    if (token) return { name: 'main' }
+  } else if (to.meta.auth === false) {
+    if (await IsLoggedIn()) return { name: 'main' }
   }
 }

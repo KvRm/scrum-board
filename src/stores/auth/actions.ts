@@ -11,7 +11,6 @@ import {
   UserCredential
 } from 'firebase/auth'
 import { auth } from '@/services/auth'
-import { LocalStorageKeys, useLocalStorage } from '@/composables/localStorage'
 
 export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
   async [AuthActionsEnum.LOGIN]({ commit }, body: LoginRequest) {
@@ -27,10 +26,6 @@ export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
 
       const user = userCredential.user
       commit(AuthMutationEnum.USER, user)
-
-      const ls = useLocalStorage()
-      ls.set(LocalStorageKeys.TOKEN, user.refreshToken)
-      ls.set(LocalStorageKeys.UID, user.uid)
 
       router.push('/')
     } catch (error) {
@@ -51,10 +46,6 @@ export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
       const user = userCredential.user
       commit(AuthMutationEnum.USER, user)
 
-      const ls = useLocalStorage()
-      ls.set(LocalStorageKeys.TOKEN, user.refreshToken)
-      ls.set(LocalStorageKeys.UID, user.uid)
-
       router.push('/')
     } catch (error) {
       commit(AuthMutationEnum.ERROR, (error as Error).message)
@@ -67,13 +58,9 @@ export const actions: ActionTree<RootState['auth'], RootState> & Actions = {
     try {
       commit(AuthMutationEnum.LOADING, true)
 
-      signOut(auth)
+      await signOut(auth)
 
       commit(AuthMutationEnum.USER, null)
-
-      const ls = useLocalStorage()
-      ls.remove(LocalStorageKeys.TOKEN)
-      ls.remove(LocalStorageKeys.UID)
 
       router.push('/login')
     } catch (error) {
