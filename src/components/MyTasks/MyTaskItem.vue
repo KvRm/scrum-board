@@ -44,7 +44,6 @@ export default defineComponent({})
   text-decoration: underline;
 }
 
-/* Сделать эмодзи в зависимости от критичности */
 .red {
   color: rgba(255, 59, 59);
 }
@@ -52,7 +51,7 @@ export default defineComponent({})
   color: rgba(255, 101, 12);
 }
 .blue {
-  color: rgba(0, 0, 255);
+  color: rgb(0, 0, 170);
 }
 .green {
   color: rgba(0, 115, 90);

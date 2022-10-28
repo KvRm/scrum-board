@@ -2,17 +2,25 @@ export interface Task {
   id: string
   title: string
   criticalLvl: TaskCriticalLvl
-  tags: string[]
   completeDate: string
-  authorId: string
-  executorId: string
+  author: {
+    name: string
+    id: string
+  }
+  executor: {
+    name: string
+    id: string
+  }
   description: string
   comments: Comment[]
 }
 
 interface Comment {
   id: string
-  author: string
+  author: {
+    name: string
+    id: string
+  }
   creatingTime: string
   text: string
 }

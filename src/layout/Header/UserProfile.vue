@@ -1,8 +1,8 @@
 <template>
   <div class="user-profile">
     {{ user?.email }}
-    <div class="logout">
-      <img src="@/assets/icons/leave.svg" alt="leave" @click="logout" />
+    <div class="logout" @click="logout">
+      <FontAwesomeIcon icon="fa-solid fa-arrow-right-from-bracket" />
     </div>
   </div>
 </template>
@@ -44,7 +44,7 @@ export default defineComponent({
   height: 100%;
 }
 
-.logout img {
+svg {
   width: 30px;
   height: 30px;
   cursor: pointer;

@@ -4,16 +4,16 @@
       <h2 class="title">Название доски</h2>
       <ul class="controllers">
         <li class="controller" data-tooltip="Пользователи">
-          <img class="icon" src="@/assets/icons/user.svg" alt="Пользователи" />
+          <FontAwesomeIcon color="var(--black)" icon="fa-solid fa-user" />
         </li>
         <li class="controller" data-tooltip="Изменить" v-if="isCreator">
-          <img class="icon" src="@/assets/icons/edit.svg" alt="Изменить" />
+          <FontAwesomeIcon color="var(--black)" icon="fa-solid fa-pen" />
         </li>
         <li class="controller" data-tooltip="Покинуть" v-if="!isCreator">
-          <img class="icon" src="@/assets/icons/leave.svg" alt="Покинуть" />
+          <FontAwesomeIcon color="var(--black)" icon="fa-solid fa-arrow-right-from-bracket" />
         </li>
         <li class="controller" data-tooltip="Удалить" v-if="isCreator">
-          <img class="icon" src="@/assets/icons/remove.svg" alt="Удалить" />
+          <FontAwesomeIcon color="var(--black)" icon="fa-solid fa-trash-can" />
         </li>
       </ul>
     </div>
@@ -131,5 +131,10 @@ export default defineComponent({
 .icon {
   width: 30px;
   height: 30px;
+}
+
+svg {
+  width: 25px;
+  height: 25px;
 }
 </style>

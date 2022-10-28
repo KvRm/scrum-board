@@ -1,6 +1,5 @@
 export enum LocalStorageKeys {
-  TOKEN = 'TOKEN',
-  UID = 'UID'
+  T = 'T'
 }
 
 export const useLocalStorage = () => {
