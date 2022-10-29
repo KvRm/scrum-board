@@ -119,7 +119,7 @@ export default defineComponent({
   font-size: 0.8rem;
   visibility: hidden;
   transform: translate(-50%, 18px) scale(0.8);
-  transition: visibility, opacity, transform 200ms;
+  transition: visibility, opacity, transform 300ms;
 }
 
 .controller:hover::after {

@@ -32,7 +32,7 @@ export default defineComponent({
   background: #fff;
   border-radius: 10px;
   border: 1px solid lightgray;
-  box-shadow: 0 0 15px rgb(221, 221, 221);
+  box-shadow: 0 0 5px rgb(221, 221, 221);
   font-size: 16px;
 }
 

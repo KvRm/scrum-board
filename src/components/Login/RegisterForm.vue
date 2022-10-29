@@ -5,8 +5,8 @@
     <input type="text" v-model="email" />
     Пароль
     <input type="password" v-model="password" />
-    Pass
-    <input type="password" />
+    Повторите пароль
+    <input type="password" v-model="passwordRepeat" />
 
     <ButtonUI
       class="submit-button"
@@ -15,7 +15,7 @@
     >
       {{ buttonText }}
     </ButtonUI>
-    <p>{{ errorMessage }}</p>
+    <p class="error">{{ errorMessage }}</p>
     <p class="link">
       Уже есть аккаунт?
       <span @click="changeForm">Авторизация</span>
@@ -29,6 +29,7 @@ import { useRouter } from 'vue-router'
 import { useStore } from '@/stores'
 import ButtonUI, { ButtonColor, ButtonSize } from '@/components/UI/ButtonUI.vue'
 import { RegisterRequest } from '@/types'
+import { AuthMutationEnum } from '@/stores/auth'
 
 export default defineComponent({
   components: { ButtonUI },
@@ -39,6 +40,7 @@ export default defineComponent({
 
     const email = ref<string>('')
     const password = ref<string>('')
+    const passwordRepeat = ref<string>('')
 
     const errorMessage = computed<string>(() => store.getters.errorState)
     const buttonText = computed<string>(() => {
@@ -55,6 +57,11 @@ export default defineComponent({
     }
 
     function handleForm() {
+      if (password.value !== passwordRepeat.value) {
+        store.commit(AuthMutationEnum.ERROR, 'Введенные пароли не совпадают')
+        return
+      }
+
       const payload: RegisterRequest = {
         email: email.value,
         password: password.value
@@ -69,6 +76,7 @@ export default defineComponent({
       ButtonSize,
       email,
       password,
+      passwordRepeat,
       errorMessage,
       buttonText,
       handleForm
@@ -99,5 +107,9 @@ export default defineComponent({
 .submit-button {
   display: grid;
   justify-self: center;
+}
+
+.error {
+  color: red;
 }
 </style>

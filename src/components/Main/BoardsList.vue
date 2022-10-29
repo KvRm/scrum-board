@@ -90,7 +90,7 @@ export default defineComponent({
   height: 170px;
   border-radius: 10px;
   border: 1px solid lightgray;
-  box-shadow: 0 0 10px rgb(221, 221, 221);
+  box-shadow: 0 0 5px rgb(221, 221, 221);
   background: #fff;
 }
 .create-board:hover {

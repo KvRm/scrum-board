@@ -15,8 +15,8 @@ export default defineComponent({
 
 <style scoped>
 .task-container {
-  max-width: 1000px;
-  padding: 10px;
+  max-width: 1200px;
+  padding: 0 10px;
   margin: 0 auto;
   font-size: 16px;
 }

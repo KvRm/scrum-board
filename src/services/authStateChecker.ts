@@ -3,7 +3,7 @@ import { AuthMutationEnum } from '@/stores/auth'
 import { onAuthStateChanged, User } from 'firebase/auth'
 import { auth } from './auth'
 
-export const IsLoggedIn = async (): Promise<boolean> => {
+export const isLoggedIn = async (): Promise<boolean> => {
   try {
     const store = useStore()
 

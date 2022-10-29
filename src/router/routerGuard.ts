@@ -1,14 +1,14 @@
 import type { RouteLocationNormalized } from 'vue-router'
-import { IsLoggedIn } from '@/services/authStateChecker'
+import { isLoggedIn } from '@/services/authStateChecker'
 
 export const routerGuard = async (to: RouteLocationNormalized) => {
   if (to.meta.auth === true) {
-    if (await IsLoggedIn()) return true
+    if (await isLoggedIn()) return true
     else
       return {
         name: 'login'
       }
   } else if (to.meta.auth === false) {
-    if (await IsLoggedIn()) return { name: 'main' }
+    if (await isLoggedIn()) return { name: 'main' }
   }
 }
